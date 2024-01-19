@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
+//Line
     [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
-    private float runSpeed = 3.0f;
+    private float runSpeed = 3000.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,6 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * Time.deltaTime;
     }
 }
