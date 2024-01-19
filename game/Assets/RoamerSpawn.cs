@@ -25,7 +25,7 @@ public class RoamerSpawn : MonoBehaviour
     {
         var m = Instantiate(prefab, transform);
         m.transform.position = pos;
-        m.GetComponent<RoamerAnim>().Die(Mathf.Lerp(5, 8, Random.value));
+        m.GetComponentInChildren<RoamerAnim>().Die(Mathf.Lerp(5, 8, Random.value));
         return m;
     }
 
