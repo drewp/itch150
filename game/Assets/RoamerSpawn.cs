@@ -9,7 +9,6 @@ public class RoamerSpawn : MonoBehaviour
     {
         var m = Instantiate(prefab, transform);
         m.transform.position = new Vector2(-6, -4);
-        m.GetComponent<RoamerAnim>().IsDead = false;
 
         SpawnCorpse(new Vector2(-3, -2));
         SpawnCorpse(new Vector2(1, -1));
@@ -20,7 +19,7 @@ public class RoamerSpawn : MonoBehaviour
     {
         var m = Instantiate(prefab, transform);
         m.transform.position = pos;
-        m.GetComponent<RoamerAnim>().IsDead = true;
+        m.GetComponent<RoamerAnim>().Die();
         return m;
     }
 
