@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RoamerSpawn : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class RoamerSpawn : MonoBehaviour
     {
         var m = Instantiate(prefab, transform);
         m.transform.position = pos;
-        m.GetComponent<RoamerAnim>().Die();
+        m.GetComponent<RoamerAnim>().Die(Mathf.Lerp(5, 8, Random.value));
         return m;
     }
 

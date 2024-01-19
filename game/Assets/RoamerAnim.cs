@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class RoamerAnim : MonoBehaviour
 {
@@ -14,12 +13,11 @@ public class RoamerAnim : MonoBehaviour
     {
 
     }
-    public void Die()
+    public void Die(float fadeTime)
     {
         IsDead = true;
         DeathTime = Time.time;
-
-        DarkTime = DeathTime + Mathf.Lerp(5, 8, Random.value);
+        DarkTime = DeathTime + fadeTime;
     }
     void Update()
     {
@@ -27,6 +25,5 @@ public class RoamerAnim : MonoBehaviour
         var deadSprite = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         aliveSprite.color = new Color(1f, 1f, 1f, IsDead ? 0f : 1f);
         deadSprite.color = new Color(1f, 1f, 1f, IsDead ? (1f - Mathf.InverseLerp(DeathTime, DarkTime, Time.time)) : 0f);
-
     }
 }
