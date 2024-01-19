@@ -29,8 +29,11 @@ public class RoamerWalk : MonoBehaviour
 
     void FixedUpdate()
     {
+        var rb = GetComponent<Rigidbody2D>();
+        
         if (!GetComponent<RoamerAnim>().IsAlive())
         {
+            rb.simulated=false;
             return;
         }
 
@@ -41,7 +44,6 @@ public class RoamerWalk : MonoBehaviour
             goalPosSet = true;
         }
         var gallopSpeed = 0.5f + 0.8f * Math.Abs(Mathf.Sin(Time.time * 3 + randId * 5));
-        var rb = GetComponent<Rigidbody2D>();
         rb.velocity = (goalPos - transform.position).normalized * gallopSpeed;
     }
 

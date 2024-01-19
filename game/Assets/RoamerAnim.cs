@@ -31,6 +31,9 @@ public class RoamerAnim : MonoBehaviour
     }
     public void Die(float fadeTime)
     {
+        if (!IsAlive()) {
+            return;
+        }
         DeathTime = Time.time;
         DarkTime = DeathTime + fadeTime;
     }

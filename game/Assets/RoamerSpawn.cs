@@ -51,6 +51,11 @@ public class RoamerSpawn : MonoBehaviour
     {
         var now = Time.time;
         DestroyExpiredRoamers(now);
+        if (transform.childCount < 10)
+        {
+            var m = Instantiate(prefab, transform);
+            m.transform.position = new Vector3(-6, -6, 0);
+        }
     }
 
     private void DestroyExpiredRoamers(float now)
@@ -84,6 +89,17 @@ public class RoamerSpawn : MonoBehaviour
             total += Mathf.InverseLerp(noLightPastDistance, fullLightUpToDistance, dist);
         }
         return total;
+    }
 
+    public List<GameObject> RoamersNear(Vector2 pos, float maxDistance = 1f)
+    {
+        var ret = new List<GameObject>();
+        for (var i = 0; i < transform.childCount; i++)
+        {
+            var child = transform.GetChild(i).gameObject;
+            if (Vector2.Distance(child.transform.position, pos) < maxDistance) ret.Add(child);
+
+        }
+        return ret;
     }
 }
