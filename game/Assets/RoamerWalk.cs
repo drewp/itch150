@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,12 +21,15 @@ public class RoamerWalk : MonoBehaviour
     void Update()
     {
         GetComponent<RoamerAnim>().Face(goalPos.x > transform.position.x);
-        Debug.DrawLine(transform.position, goalPos);
+        if (GetComponent<RoamerAnim>().IsAlive())
+        {
+            Debug.DrawLine(transform.position, goalPos);
+        }
     }
 
     void FixedUpdate()
     {
-        if (GetComponent<RoamerAnim>().IsDead)
+        if (!GetComponent<RoamerAnim>().IsAlive())
         {
             return;
         }
@@ -33,26 +37,38 @@ public class RoamerWalk : MonoBehaviour
         var dist = Vector2.Distance(goalPos, transform.position);
         if (!goalPosSet || dist < .1)
         {
+            goalPos = PickNewGoal();
             goalPosSet = true;
-            PickNewGoal();
         }
         var gallopSpeed = 0.5f + 0.8f * Math.Abs(Mathf.Sin(Time.time * 3 + randId * 5));
-        transform.position = Vector2.MoveTowards(transform.position, goalPos, gallopSpeed * Time.fixedDeltaTime);
+        var rb = GetComponent<Rigidbody2D>();
+        rb.velocity = (goalPos - transform.position).normalized * gallopSpeed;
     }
 
-    private void PickNewGoal()
+    private Vector3 PickNewGoal()
     {
-        var offset = new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2 * 3;
-        var rand = transform.position + offset;
-        var player = GameObject.FindWithTag("Player").transform.position;
-        var distToPlayer = Vector2.Distance(player, transform.position);
-        if (distToPlayer < closeToPlayerThreshold)
+        var ret = transform.position;
+        var tries = 10;
+        while (tries-- > 0)
         {
-            goalPos = player;
+            var offset = new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2 * 3;
+            var rand = transform.position + offset;
+            var player = GameObject.FindWithTag("Player").transform.position;
+            var distToPlayer = Vector2.Distance(player, transform.position);
+            if (distToPlayer < closeToPlayerThreshold)
+            {
+                ret = player;
+            }
+            else
+            {
+                ret = Vector2.Lerp(rand, player, playerAffinity);
+            }
+            if (GameObject.Find("roamers").GetComponent<RoamerSpawn>().LightIntensityAtPoint(ret) > .5f)
+            {
+                continue;
+            }
+            break;
         }
-        else
-        {
-            goalPos = Vector2.Lerp(rand, player, playerAffinity);
-        }
+        return ret;
     }
 }
