@@ -22,6 +22,8 @@ class makebeam
 }
 public class beam_spell : MonoBehaviour
 {
+    [SerializeField]
+    private kindling kindling;
     public GameObject projectileObj;
     private Rigidbody projectileRb;
     [SerializeField]
@@ -44,12 +46,15 @@ public class beam_spell : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && kindling.kindle > 0)
         {
 
             
             makebeam spell = new makebeam();
-            Color customColor = new Color(spell.root + 0.4f, spell.meat + 0.3f, spell.flower, 1.0f);
+
+            kindling.burn(0.05f + spell.meat / 8);
+
+            Color customColor = new Color(spell.root, spell.meat, spell.flower, 1.0f);
             mat.SetColor("_EmissionColor", customColor);
             var main = Particles.main;
             main.startSize = spell.root/2.2f;

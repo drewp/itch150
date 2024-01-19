@@ -18,7 +18,7 @@ public class lifetime : MonoBehaviour
         tick++;
         if (tick<20)
         {
-            Debug.Log("ticked");
+           
             Invoke("_tick", 1f);
         }
         else
