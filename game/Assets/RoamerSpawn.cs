@@ -51,10 +51,15 @@ public class RoamerSpawn : MonoBehaviour
     {
         var now = Time.time;
         DestroyExpiredRoamers(now);
+        SpawnMore();
+    }
+
+    private void SpawnMore()
+    {
         if (transform.childCount < 10)
         {
             var m = Instantiate(prefab, transform);
-            m.transform.position = new Vector3(-6, -6, 0);
+            m.transform.position = new Vector3(-8, -3, 0);
         }
     }
 
