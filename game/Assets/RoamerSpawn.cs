@@ -9,8 +9,12 @@ public class RoamerSpawn : MonoBehaviour
 
     void Start()
     {
-        var m = Instantiate(prefab, transform);
-        m.transform.position = new Vector2(-6, -4);
+        for (var i = 0.0f; i < 6.28; i += 0.4f)
+        {
+            var m = Instantiate(prefab, transform);
+            m.transform.position = new Vector2(8 * Mathf.Sin(i),
+            8 * Mathf.Cos(i));
+        }
 
         SpawnCorpse(new Vector2(-3, -2));
         SpawnCorpse(new Vector2(1, -1));

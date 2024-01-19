@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RoamerWalk : MonoBehaviour
 {
-    public float angle;
-    public float lastAnglePickTime = 0.0f;
+    public Vector3 goalPos;
+    public float lastAnglePickTime = -999.0f;
+    public float playerAffinity = 0.7f; // 0 = random walk; 1 = always head for player
+    private float closeToPlayerThreshold=2.0f;
 
     void Start()
     {
@@ -14,7 +17,8 @@ public class RoamerWalk : MonoBehaviour
 
     void Update()
     {
-
+        GetComponent<SpriteRenderer>().flipX = goalPos.x < transform.position.x;
+        Debug.DrawLine(transform.position, goalPos);
     }
     void FixedUpdate()
     {
@@ -22,14 +26,23 @@ public class RoamerWalk : MonoBehaviour
         {
             return;
         }
+
         var now = Time.time;
-        if (now > lastAnglePickTime + 1)
+        if (now > lastAnglePickTime + Random.Range(2,3))
         {
             lastAnglePickTime = now;
-            angle = PickDirection();
+            var rand = transform.position + (Vector3)Random.insideUnitCircle.normalized * 2;
+            var player = GameObject.FindWithTag("Player").transform.position;
+            if (Vector2.Distance(player, transform.position) < closeToPlayerThreshold)
+            {
+                goalPos = player;
+            }
+            else
+            {
+                goalPos = Vector2.Lerp(rand, player, playerAffinity);
+            }
         }
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-        transform.Translate(Vector2.up * 0.1f * Time.fixedDeltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, goalPos, 0.5f * Time.fixedDeltaTime);
     }
 
     float PickDirection()
