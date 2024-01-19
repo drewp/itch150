@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class RoamerSpawn : MonoBehaviour
 {
     public GameObject prefab;
+
     void Start()
     {
         var m = Instantiate(prefab, transform);
@@ -24,8 +25,4 @@ public class RoamerSpawn : MonoBehaviour
         return m;
     }
 
-    void Update()
-    {
-
-    }
 }
