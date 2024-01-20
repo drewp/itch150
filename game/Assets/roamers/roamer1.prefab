@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8486712147309597542}
   - component: {fileID: 2546521772055733215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: alive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3285669361241564012}
   - component: {fileID: 5676424989759856273}
   - component: {fileID: 2289484081533662772}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: roamer1
   m_TagString: Roamer
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3374410025115517990}
   - component: {fileID: 7418553554107664140}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: deadspot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,6 +6,7 @@ public class RoamerManager : MonoBehaviour
 {
     public int Health;
     public GameObject Hole;
+    int damage = 10;
     void Start()
     {
         
@@ -18,6 +19,15 @@ public class RoamerManager : MonoBehaviour
             RoamerSpawn2.RoamerCount--;
             LightSpawn.SpawnLight(3.8f, transform, Hole);
             Destroy(this.gameObject);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("W");
+            PlayManager.health -= damage;
+            gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 10000);
         }
     }
 }

@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
 {
-    public int health = 100;
+    public static int health = 100;
     void Start()
     {
         
@@ -13,9 +14,10 @@ public class PlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(health == 0)
+        if(health <= 0)
         {
-            Debug.Log("You Died");
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
         }
     }
 }

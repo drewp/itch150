@@ -10,12 +10,16 @@ public class RoamerSpawn2 : MonoBehaviour
     public int MaxRoamers = 10;
     void Start()
     {
-        SpawnMore(transform);
+
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(RoamerCount == 0)
+        {
+            SpawnMore(transform);
+        }
         if ((int)Random.Range(1, (100 * (RoamerCount)) / (DifficultyMod)) == 10)
         {
             SpawnMore(transform);
