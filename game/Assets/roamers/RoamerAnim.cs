@@ -8,8 +8,8 @@ using UnityEngine;
 
 public class RoamerAnim : MonoBehaviour
 {
-    public float DeathTime = -1.0f;  // -1 means alive
-    public float DarkTime = 0.0f;
+    public float DeathTime;  // -1 means alive
+    public float DarkTime;
     private SpriteRenderer aliveSprite;
     private SpriteRenderer deadSprite;
     public void Awake()
@@ -37,6 +37,7 @@ public class RoamerAnim : MonoBehaviour
         DeathTime = Time.time;
         DarkTime = DeathTime + fadeTime;
     }
+
     void Update()
     {
         aliveSprite.color = new Color(1f, 1f, 1f, IsAlive() ? 1f : 0f);
