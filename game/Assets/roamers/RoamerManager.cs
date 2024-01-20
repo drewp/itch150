@@ -10,7 +10,7 @@ public class RoamerManager : MonoBehaviour
     int damage = 10;
     void Start()
     {
-        
+       // Hole = Get   
     }
     void Update()
     {
@@ -18,7 +18,7 @@ public class RoamerManager : MonoBehaviour
         {
             RoamerSpawn2.DifficultyMod += 0.03f;
             RoamerSpawn2.RoamerCount--;
-            LightSpawn.SpawnLight(3.8f, transform, Hole);
+            LightSpawn.SpawnLight(3.8f, transform.position, Hole, 0.5f, 3.4f);
             Destroy(this.gameObject);
         }
     }
