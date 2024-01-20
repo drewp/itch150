@@ -54,7 +54,6 @@ public class RoamerWalk : MonoBehaviour
         }
         rb.velocity = (goalPos - transform.position).normalized * curSpeed;
     }
-
     private Vector3 PickNewGoal()
     {
         var me = transform.position;

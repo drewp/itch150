@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 5676424989759856273}
   m_Layer: 0
   m_Name: roamer1
-  m_TagString: Untagged
+  m_TagString: Roamer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,10 @@ MonoBehaviour:
   playerAffinity: 0.2
   goalDistance: 2
   closeToPlayerThreshold: 2
+  maxPlayerSpottingDistance: 10
   maxTimeOnOneGoal: 3
+  loSpeed: 1
+  hiSpeed: 4
 --- !u!114 &4944400603598204353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brightRadius: 0
   darkRadius: 5
+  brightness: 1
 --- !u!1 &5788792118865806882
 GameObject:
   m_ObjectHideFlags: 0
