@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2289484081533662772, guid: 23b959d6db5a20b2cb66beb23bc8f2f0, type: 3}
+      propertyPath: Health
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3505843964317000304, guid: 23b959d6db5a20b2cb66beb23bc8f2f0, type: 3}
       propertyPath: m_Name
       value: roamer1

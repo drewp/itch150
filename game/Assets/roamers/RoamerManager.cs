@@ -6,6 +6,7 @@ public class RoamerManager : MonoBehaviour
 {
     public int Health = 1;
     public GameObject Hole;
+    public bool CantDie;
     int damage = 10;
     void Start()
     {
@@ -13,7 +14,7 @@ public class RoamerManager : MonoBehaviour
     }
     void Update()
     {
-        if(Health <= 0)
+        if(Health <= 0 && CantDie == false)
         {
             RoamerSpawn2.DifficultyMod += 0.03f;
             RoamerSpawn2.RoamerCount--;

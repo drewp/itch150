@@ -46,6 +46,7 @@ public class RoamerSpawn : MonoBehaviour
         var m = Instantiate(prefab, transform);
         m.name = "spawnedRoamer" + counter;
         m.transform.position = pos;
+        m.GetComponent<RoamerManager>().CantDie = true;
         counter++;
         return m;
 
