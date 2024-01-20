@@ -16,7 +16,7 @@ public class RoamerManager : MonoBehaviour
     {
         if(Health <= 0 && CantDie == false)
         {
-            RoamerSpawn2.DifficultyMod += 0.03f;
+            RoamerSpawn2.DifficultyMod += 0.9f;
             RoamerSpawn2.RoamerCount--;
             LightSpawn.SpawnLight(3.8f, transform.position, Hole, 0.5f, 3.4f);
             Destroy(this.gameObject);

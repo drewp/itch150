@@ -16,7 +16,8 @@ public class LightSpawn : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = -11;
+            pos.z = -1;
+            SpawnLight(3.8f, pos, Hole, 0.5f, 3.4f);
         }
     }
     public static void SpawnLight(float size, Transform transform, GameObject Hole)

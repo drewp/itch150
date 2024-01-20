@@ -7,6 +7,7 @@ public class RoamerSpawn2 : MonoBehaviour
     public GameObject Roamer;
     public static int RoamerCount = 0;
     public static float DifficultyMod = 1;
+    public static float Mod = 0;
     public int MaxRoamers = 10;
     void Start()
     {
@@ -16,11 +17,15 @@ public class RoamerSpawn2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        DifficultyMod -= Mod;
+        Mod = Mathf.Abs((transform.position.x + transform.position.y) / 100);
+        DifficultyMod += Mod;
+        Debug.Log(DifficultyMod);
         if(RoamerCount == 0)
         {
             SpawnMore(transform);
         }
-        if ((int)Random.Range(1, (100 * (RoamerCount)) / (DifficultyMod)) == 10)
+        if ((int)Random.Range(1, (100) / (DifficultyMod)) <= 1)
         {
             SpawnMore(transform);
         }
