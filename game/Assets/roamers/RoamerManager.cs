@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoamerManager : MonoBehaviour
 {
-    public int Health;
+    public int Health = 1;
     public GameObject Hole;
     int damage = 10;
     void Start()
