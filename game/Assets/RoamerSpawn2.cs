@@ -31,7 +31,7 @@ public class RoamerSpawn2 : MonoBehaviour
     {
         if (RoamerCount <= MaxRoamers)
         {
-            Instantiate(Roamer, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-10, 10), 1), transform.rotation);
+            Instantiate(Roamer, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-10, 10), -1), transform.rotation);
             RoamerCount++;
         }
     }
