@@ -5,23 +5,20 @@ using UnityEngine;
 public class RoamerManager : MonoBehaviour
 {
     public int Health;
-    void RoamerInit(int health)
-    {
-        Health = health;
-    }
+    public GameObject Hole;
     void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
+        Health -= 1;
         if(Health <= 0)
         {
             RoamerSpawn2.DifficultyMod += 0.03f;
             RoamerSpawn2.RoamerCount--;
-            Destroy(this);
+            LightSpawn.SpawnLight(3.8f, transform, Hole);
+            Destroy(this.gameObject);
         }
     }
 }
