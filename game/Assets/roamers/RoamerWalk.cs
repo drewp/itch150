@@ -47,45 +47,71 @@ public class RoamerWalk : MonoBehaviour
         }
 
         var now = Time.time;
-        var dist = Vector2.Distance(goalPos, transform.position);
-
-        if (now > nextGoalUpdateTime || dist < .1)
+        if (now > nextGoalUpdateTime || Vector2.Distance(goalPos, transform.position) < .1)
         {
             nextGoalUpdateTime = now + maxTimeOnOneGoal * (.7f + .6f * randId);
             goalPos = PickNewGoal();
         }
-        var gallopSpeed = 0.5f + 0.8f * Math.Abs(Mathf.Sin(Time.time * 3 + randId * 5));
         rb.velocity = (goalPos - transform.position).normalized * curSpeed;
     }
 
     private Vector3 PickNewGoal()
     {
-        var ret = transform.position;
+        var me = transform.position;
+        GameObject player = GameObject.FindWithTag("Player");
+        var playerPos = player.transform.position;
+        var playerIsInDarkness = LightIntensityAtPoint(playerPos) < .2;
+
+        var ret = me;
         var tries = 10;
         while (tries-- > 0)
         {
-            var offset = new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2 * goalDistance;
-            var rand = transform.position + offset;
-            GameObject player = GameObject.FindWithTag("Player");
-            var playerPos = player.transform.position;
-            var distToPlayer = Vector2.Distance(playerPos, transform.position);
-            if (distToPlayer < closeToPlayerThreshold || (distToPlayer < maxPlayerSpottingDistance && LineOfSightToPlayer(player)))
+            var rand = me + RandDirection() * goalDistance;
+
+            if (playerIsInDarkness)
             {
-                ret = playerPos;
-                curSpeed = hiSpeed;
+                var distToPlayer = Vector2.Distance(playerPos, transform.position);
+
+                bool weAreVeryClose = distToPlayer < closeToPlayerThreshold;
+                bool weAreWithinSightDistance = distToPlayer < maxPlayerSpottingDistance;
+
+                if (weAreVeryClose || (weAreWithinSightDistance && LineOfSightToPlayer(player)))
+                {
+                    ret = playerPos;
+                    curSpeed = hiSpeed;
+                }
+
+                else
+                {
+                    ret = Vector2.Lerp(rand, playerPos, playerAffinity);
+                    curSpeed = loSpeed;
+                }
             }
             else
             {
-                ret = Vector2.Lerp(rand, playerPos, playerAffinity);
+                // player in the light- can't see them at all
+                ret = rand;
                 curSpeed = loSpeed;
             }
-            if (GameObject.Find("roamers").GetComponent<LightMeter>().LightIntensityAtPoint(ret) > .5f)
+
+            bool wouldStepIntoLight = LightIntensityAtPoint(ret) > .2f;
+            if (wouldStepIntoLight)
             {
                 continue;
             }
             break;
         }
         return ret;
+    }
+
+    private static Vector3 RandDirection()
+    {
+        return new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2;
+    }
+
+    float LightIntensityAtPoint(Vector2 pos)
+    {
+        return GameObject.Find("roamers").GetComponent<LightMeter>().LightIntensityAtPoint(pos);
     }
 
     private bool LineOfSightToPlayer(GameObject player)
