@@ -15,7 +15,7 @@ public class beam_spell : MonoBehaviour
     [SerializeField]
     private kindling kindling;
     public GameObject projectileObj;
-    private Rigidbody projectileRb;
+    private Rigidbody2D projectileRb;
     [SerializeField]
     private float spell_speed = 60f;
     [SerializeField]
@@ -33,7 +33,7 @@ public class beam_spell : MonoBehaviour
     void Start()
     {
         
-        projectileRb = projectileObj.GetComponent<Rigidbody>();
+        projectileRb = projectileObj.GetComponent<Rigidbody2D>();
         
     }
     
@@ -70,8 +70,8 @@ public class beam_spell : MonoBehaviour
             mousePos.y = mousePos.y - objectPos.y;
 
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-            Rigidbody beam;
-            beam = Instantiate(projectileRb, transform.position, Quaternion.Euler(new Vector3(0, 0, angle))) as Rigidbody;
+            Rigidbody2D beam;
+            beam = Instantiate(projectileRb, transform.position, Quaternion.Euler(new Vector3(0, 0, angle))) as Rigidbody2D;
 
 
 

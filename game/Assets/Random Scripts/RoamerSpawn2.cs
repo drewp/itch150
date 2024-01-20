@@ -20,7 +20,7 @@ public class RoamerSpawn2 : MonoBehaviour
         DifficultyMod -= Mod;
         Mod = Mathf.Abs((transform.position.x + transform.position.y) / 100);
         DifficultyMod += Mod;
-        Debug.Log(DifficultyMod);
+        //Debug.Log(DifficultyMod);
         if(RoamerCount == 0)
         {
             SpawnMore(transform);
