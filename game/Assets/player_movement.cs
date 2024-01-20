@@ -18,6 +18,6 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * Time.deltaTime;
     }
 }
