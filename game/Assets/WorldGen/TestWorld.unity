@@ -404,6 +404,7 @@ GameObject:
   - component: {fileID: 973476924}
   - component: {fileID: 973476925}
   - component: {fileID: 973476926}
+  - component: {fileID: 973476927}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -592,6 +593,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6884241, y: 0.8326032}
   m_EdgeRadius: 0
+--- !u!114 &973476927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973476919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f914454046bc7e4883e5e867591e510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
+  kindling: {fileID: 0}
+  projectileObj: {fileID: 0}
+  spell_speed: 60
+  mat: {fileID: 0}
+  sr: {fileID: 0}
+  Particles: {fileID: 0}
 --- !u!1 &1154618141
 GameObject:
   m_ObjectHideFlags: 0

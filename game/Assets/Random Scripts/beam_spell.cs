@@ -7,26 +7,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-class makebeam
-{
-    public float root, meat, flower = 0;
-    
-    
-    public void make(float x, float y, float z)
-    {
-        meat = x;
-        root = y;
-        flower = z;
 
-
-
-        //root = Random.Range(0f, 2.0f);
-        //flower = Random.Range(0f, 2.0f);
-        //meat = Random.Range(0f, 2.0f);
-
-       
-    }
-}
 public class beam_spell : MonoBehaviour
 {
     [SerializeField]
@@ -43,8 +24,10 @@ public class beam_spell : MonoBehaviour
     SpriteRenderer sr;
     [SerializeField]
     ParticleSystem Particles;
+    
 
-    makebeam spell = new makebeam();
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -58,16 +41,16 @@ public class beam_spell : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && kindling.kindle > 0 && inventory.Root > 0 && inventory.Meat > 0 && inventory.Flower > 0)
+        if (Input.GetMouseButtonDown(0) && kindling.kindle > 0 && inventory.Meat > 0 && inventory.Root > 0 && inventory.Flower > 0)
         {
-            
 
+           
 
 
             kindling.burn(0.05f + inventory.Meat / 8);
 
             Color customColor = new Color(inventory.Root/2, inventory.Meat/2, inventory.Flower, 1.0f);
-            //mat.SetColor("_Color", customColor);
+            mat.SetColor("_Color", customColor);
             sr.color = customColor;
             var main = Particles.main;
             main.startSize = inventory.Root/2.2f;
