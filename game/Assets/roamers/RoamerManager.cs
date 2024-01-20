@@ -26,7 +26,6 @@ public class RoamerManager : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("W");
             PlayManager.health -= damage;
             gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 5000);
         }
