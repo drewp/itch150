@@ -5,10 +5,9 @@ using UnityEngine;
 public class RoamerSpawn2 : MonoBehaviour
 {
     public GameObject Roamer;
-    public int RoamerCount = 0;
-    public float DifficultyMod = 1;
+    public static int RoamerCount = 0;
+    public static float DifficultyMod = 1;
     public int MaxRoamers = 10;
-    public float DeadRoamers = 1;
     void Start()
     {
         SpawnMore(transform);
@@ -17,7 +16,7 @@ public class RoamerSpawn2 : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if ((int)Random.Range(1, (100 * (RoamerCount)) / (DifficultyMod+(DeadRoamers/100))) == 10)
+        if ((int)Random.Range(1, (100 * (RoamerCount)) / (DifficultyMod)) == 10)
         {
             SpawnMore(transform);
         }
@@ -31,7 +30,8 @@ public class RoamerSpawn2 : MonoBehaviour
     {
         if (RoamerCount <= MaxRoamers)
         {
-            Instantiate(Roamer, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-10, 10), -1), transform.rotation);
+            GameObject Object = Instantiate(Roamer, new Vector3(transform.position.x + Random.Range(-10, 10), transform.position.y + Random.Range(-10, 10), -1), transform.rotation);
+            Object.GetComponent<RoamerManager>().Health = (int)(100 * (DifficultyMod / 2));
             RoamerCount++;
         }
     }

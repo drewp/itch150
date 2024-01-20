@@ -532,6 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c044191cccb2b4cb90f2f7ecb9a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
 --- !u!1 &1154618141
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,8 +543,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1154618142}
   - component: {fileID: 1154618143}
+  - component: {fileID: 1154618144}
   m_Layer: 0
-  m_Name: RoamerSpawner
+  m_Name: roamers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,6 +583,18 @@ MonoBehaviour:
   DifficultyMod: 1
   MaxRoamers: 10
   DeadRoamers: 1
+--- !u!114 &1154618144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154618141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71888c3de3e93880aec256ef03bb640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1695215566
 GameObject:
   m_ObjectHideFlags: 0

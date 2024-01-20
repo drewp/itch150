@@ -107,12 +107,10 @@ public class RoamerWalk : MonoBehaviour
     {
         return new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2;
     }
-
     float LightIntensityAtPoint(Vector2 pos)
     {
         return GameObject.Find("roamers").GetComponent<LightMeter>().LightIntensityAtPoint(pos);
     }
-
     private bool LineOfSightToPlayer(GameObject player)
     {
         var playerPos = player.transform.position;
