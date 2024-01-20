@@ -47,20 +47,12 @@ public class RoamerSpawn : MonoBehaviour
             }
         }
     }
+
     public void FixedUpdate()
     {
         var now = Time.time;
         DestroyExpiredRoamers(now);
         SpawnMore();
-    }
-
-    private void SpawnMore()
-    {
-        if (transform.childCount < 10)
-        {
-            var m = Instantiate(prefab, transform);
-            m.transform.position = new Vector3(-8, -3, 0);
-        }
     }
 
     private void DestroyExpiredRoamers(float now)
@@ -78,6 +70,15 @@ public class RoamerSpawn : MonoBehaviour
         foreach (var r in toKill)
         {
             Destroy(r);
+        }
+    }
+
+    private void SpawnMore()
+    {
+        if (transform.childCount < 10)
+        {
+            var m = Instantiate(prefab, transform);
+            m.transform.position = new Vector3(-8, -3, 0);
         }
     }
 

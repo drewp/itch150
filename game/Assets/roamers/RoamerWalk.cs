@@ -8,11 +8,14 @@ using Random = UnityEngine.Random;
 public class RoamerWalk : MonoBehaviour
 {
     public Vector3 goalPos;
-    public bool goalPosSet = false;
-    public float lastGoalTime = 0.0f;
     public float playerAffinity = 0.1f; // 0 = random walk; 1 = always head for player
-    private float closeToPlayerThreshold = 2f;
+    public float goalDistance = 2f; // approx max size of a goal step
+    public float closeToPlayerThreshold = 2f; // closer than this; just aim for player
+    public float maxTimeOnOneGoal=3f;
+
+    private float nextGoalUpdateTime = 0.0f;
     private float randId;
+
     void Start()
     {
         randId = Random.value;
@@ -30,18 +33,20 @@ public class RoamerWalk : MonoBehaviour
     void FixedUpdate()
     {
         var rb = GetComponent<Rigidbody2D>();
-        
+
         if (!GetComponent<RoamerAnim>().IsAlive())
         {
-            rb.simulated=false;
+            rb.simulated = false;
             return;
         }
 
+        var now = Time.time;
         var dist = Vector2.Distance(goalPos, transform.position);
-        if (!goalPosSet || dist < .1)
+
+        if (now > nextGoalUpdateTime || dist < .1)
         {
+            nextGoalUpdateTime = now+maxTimeOnOneGoal;
             goalPos = PickNewGoal();
-            goalPosSet = true;
         }
         var gallopSpeed = 0.5f + 0.8f * Math.Abs(Mathf.Sin(Time.time * 3 + randId * 5));
         rb.velocity = (goalPos - transform.position).normalized * gallopSpeed;
@@ -53,7 +58,7 @@ public class RoamerWalk : MonoBehaviour
         var tries = 10;
         while (tries-- > 0)
         {
-            var offset = new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2 * 3;
+            var offset = new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2 * goalDistance;
             var rand = transform.position + offset;
             var player = GameObject.FindWithTag("Player").transform.position;
             var distToPlayer = Vector2.Distance(player, transform.position);
