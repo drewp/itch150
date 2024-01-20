@@ -8,7 +8,7 @@ public class movement : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rigidBody;
     [SerializeField]
-    private float runSpeed = 3000.0f;
+    private float runSpeed = 10.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +16,7 @@ public class movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed * Time.deltaTime;
+    void FixedUpdate() {
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized* runSpeed;
     }
 }
