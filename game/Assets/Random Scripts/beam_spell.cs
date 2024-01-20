@@ -40,6 +40,8 @@ public class beam_spell : MonoBehaviour
     [SerializeField]
     Material mat;
     [SerializeField]
+    SpriteRenderer sr;
+    [SerializeField]
     ParticleSystem Particles;
 
     makebeam spell = new makebeam();
@@ -56,7 +58,7 @@ public class beam_spell : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && kindling.kindle > 0)
+        if (Input.GetMouseButtonDown(0) && kindling.kindle > 0 && inventory.Root > 0 && inventory.Meat > 0 && inventory.Flower > 0)
         {
             
 
@@ -64,14 +66,15 @@ public class beam_spell : MonoBehaviour
 
             kindling.burn(0.05f + inventory.Meat / 8);
 
-            Color customColor = new Color(inventory.Root, inventory.Meat, inventory.Flower, 1.0f);
-            mat.SetColor("_EmissionColor", customColor);
+            Color customColor = new Color(inventory.Root/2, inventory.Meat/2, inventory.Flower, 1.0f);
+            //mat.SetColor("_Color", customColor);
+            sr.color = customColor;
             var main = Particles.main;
             main.startSize = inventory.Root/2.2f;
             projectileObj.transform.localScale = new Vector3(inventory.Meat/1.5f, inventory.Meat/1.5f, 0f);
             if (inventory.Meat != 0f)
             {
-                spell_speed = 400 / inventory.Meat / 0.8f;
+                spell_speed = inventory.Flower * 150 / inventory.Meat / 0.8f;
             }
             
 

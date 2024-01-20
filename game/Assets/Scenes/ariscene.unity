@@ -699,6 +699,7 @@ MonoBehaviour:
   projectileObj: {fileID: 9157110534159458741, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
   spell_speed: 200
   mat: {fileID: 2100000, guid: 5ff08f71e11d35f44bdcd6a5bb3a113e, type: 2}
+  sr: {fileID: 1856923635610404593, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
   Particles: {fileID: 8634375224840446206, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
 --- !u!114 &1351346289
 MonoBehaviour:
@@ -1202,6 +1203,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: purple_root
       objectReference: {fileID: 0}
+    - target: {fileID: 6424224644311718916, guid: 5083e2f5726146940be0bd124c623850, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424224644311718916, guid: 5083e2f5726146940be0bd124c623850, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6424224644311718916, guid: 5083e2f5726146940be0bd124c623850, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1470,7 +1483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5914693583900055421, guid: 55b1cbae159f6f24cb596ba2fdbd60a5, type: 3}
       propertyPath: value
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5914693583900055421, guid: 55b1cbae159f6f24cb596ba2fdbd60a5, type: 3}
       propertyPath: inventory
