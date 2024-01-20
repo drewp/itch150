@@ -102,7 +102,13 @@ public class RoamerWalk : MonoBehaviour
         }
         return ret;
     }
-
+    public void JumpAwayFrom(Vector3 pos)
+    {
+        var me = transform.position;
+        var away = (me - pos).normalized;
+        goalPos = me + away * closeToPlayerThreshold;
+        curSpeed = hiSpeed;
+    }
     private static Vector3 RandDirection()
     {
         return new Vector3(Random.value - .5f, Random.value - .5f, 0) * 2;
