@@ -5,7 +5,7 @@ using UnityEngine;
 public class inventory : MonoBehaviour
 {
     
-    private float Flower, Meat, Root = 0f;
+    public float Flower = 0f, Meat = 0f, Root = 0f;
 
     
     public void add(string name, float value)
@@ -13,6 +13,18 @@ public class inventory : MonoBehaviour
         if (name == "flower" && Flower == 0)
         {
             Flower= value;
+            Debug.Log(Flower);
+
+        }
+        if (name == "meat" && Meat == 0)
+        {
+            Meat = value;
+            Debug.Log(Flower);
+
+        }
+        if (name == "root" && Root == 0)
+        {
+            Root = value;
             Debug.Log(Flower);
 
         }

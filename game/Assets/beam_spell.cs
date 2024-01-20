@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design.Serialization;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using static UnityEngine.GraphicsBuffer;
@@ -8,20 +9,28 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 class makebeam
 {
-    public float root, meat, flower;
+    public float root, meat, flower = 0;
     
-    public makebeam()
+    
+    public void make(float x, float y, float z)
     {
-        
-        root = Random.Range(0f, 2.0f);
-        flower = Random.Range(0f, 2.0f);
-        meat = Random.Range(0f, 2.0f);
+        meat = x;
+        root = y;
+        flower = z;
+
+
+
+        //root = Random.Range(0f, 2.0f);
+        //flower = Random.Range(0f, 2.0f);
+        //meat = Random.Range(0f, 2.0f);
 
        
     }
 }
 public class beam_spell : MonoBehaviour
 {
+    [SerializeField]
+    private inventory inventory;
     [SerializeField]
     private kindling kindling;
     public GameObject projectileObj;
@@ -33,11 +42,12 @@ public class beam_spell : MonoBehaviour
     [SerializeField]
     ParticleSystem Particles;
 
-
+    makebeam spell = new makebeam();
 
     // Start is called before the first frame update
     void Start()
     {
+        
         projectileRb = projectileObj.GetComponent<Rigidbody>();
         
     }
@@ -48,18 +58,22 @@ public class beam_spell : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && kindling.kindle > 0)
         {
-
             
-            makebeam spell = new makebeam();
 
-            kindling.burn(0.05f + spell.meat / 8);
 
-            Color customColor = new Color(spell.root, spell.meat, spell.flower, 1.0f);
+
+            kindling.burn(0.05f + inventory.Meat / 8);
+
+            Color customColor = new Color(inventory.Root, inventory.Meat, inventory.Flower, 1.0f);
             mat.SetColor("_EmissionColor", customColor);
             var main = Particles.main;
-            main.startSize = spell.root/2.2f;
-            projectileObj.transform.localScale = new Vector3(spell.meat/1.5f, spell.meat/1.5f, 0f);
-            spell_speed = 400/spell.meat/0.8f;
+            main.startSize = inventory.Root/2.2f;
+            projectileObj.transform.localScale = new Vector3(inventory.Meat/1.5f, inventory.Meat/1.5f, 0f);
+            if (inventory.Meat != 0f)
+            {
+                spell_speed = 400 / inventory.Meat / 0.8f;
+            }
+            
 
 
             Vector3 mousePos = Input.mousePosition;
