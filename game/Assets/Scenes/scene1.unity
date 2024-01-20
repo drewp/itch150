@@ -560,6 +560,7 @@ GameObject:
   m_Component:
   - component: {fileID: 594763464}
   - component: {fileID: 594763463}
+  - component: {fileID: 594763465}
   m_Layer: 0
   m_Name: roamers
   m_TagString: Untagged
@@ -580,6 +581,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 3505843964317000304, guid: 23b959d6db5a20b2cb66beb23bc8f2f0, type: 3}
+  spawnDeadCircle: 1
+  spawnAliveCircle: 1
+  minSpawned: 10
 --- !u!4 &594763464
 Transform:
   m_ObjectHideFlags: 0
@@ -595,6 +599,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &594763465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594763462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71888c3de3e93880aec256ef03bb640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &938425531
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -7,45 +8,47 @@ using Random = UnityEngine.Random;
 public class RoamerSpawn : MonoBehaviour
 {
     public GameObject prefab;
-
+    public bool spawnDeadCircle = true;
+    public bool spawnAliveCircle = true;
+    public int minSpawned = 10;
+    private int counter = 0;
     void Start()
     {
-        for (var i = 0.0f; i < 6.28; i += 0.4f)
+        if (spawnAliveCircle)
         {
-            var m = Instantiate(prefab, transform);
-            m.transform.position = new Vector2(8 * Mathf.Sin(i),
-            8 * Mathf.Cos(i));
+            for (var i = 0.0f; i < 6.28; i += 0.4f)
+            {
+                var m = Make(new Vector2(8 * Mathf.Sin(i),
+                8 * Mathf.Cos(i)));
+            }
         }
-        for (var i = 0.0f; i < 6.28; i += 0.4f)
+        if (spawnDeadCircle)
         {
-            SpawnCorpse(new Vector2(4 * Mathf.Sin(i),
-                                    4 * Mathf.Cos(i)));
+            for (var i = 0.0f; i < 6.28; i += 0.4f)
+            {
+                SpawnCorpse(new Vector2(4 * Mathf.Sin(i),
+                                        4 * Mathf.Cos(i)));
+            }
+            SpawnCorpse(new Vector2(1, -1));
+            SpawnCorpse(new Vector2(4, -3));
         }
-        SpawnCorpse(new Vector2(1, -1));
-        SpawnCorpse(new Vector2(4, -3));
     }
 
     GameObject SpawnCorpse(Vector2 pos)
     {
-        var m = Instantiate(prefab, transform);
-        m.transform.position = pos;
+        var m = Make(pos);
         m.GetComponentInChildren<RoamerAnim>().Die(Mathf.Lerp(5, 20, Random.value));
         return m;
     }
 
-    public void Update()
+    GameObject Make(Vector3 pos)
     {
+        var m = Instantiate(prefab, transform);
+        m.name = "spawnedRoamer" + counter;
+        m.transform.position = pos;
+        counter++;
+        return m;
 
-        for (var x = -8f; x < 8f; x += .6f)
-        {
-            for (var y = -8f; y < 8f; y += .6f)
-            {
-                var p = new Vector2(x, y);
-                var v = LightIntensityAtPoint(p);
-                Debug.DrawLine(p, p + new Vector2(0, v * .1f));
-
-            }
-        }
     }
 
     public void FixedUpdate()
@@ -75,26 +78,10 @@ public class RoamerSpawn : MonoBehaviour
 
     private void SpawnMore()
     {
-        if (transform.childCount < 10)
+        if (transform.childCount < minSpawned)
         {
-            var m = Instantiate(prefab, transform);
-            m.transform.position = new Vector3(-8, -3, 0);
+            var m = Make(new Vector3(10f, (Random.value - .5f) * 4f, 0f));
         }
-    }
-
-    public float LightIntensityAtPoint(Vector2 pos)
-    {
-        var total = 0.0f;
-        for (var i = 0; i < transform.childCount; i++)
-        {
-            var r = transform.GetChild(i);
-            if (r.GetComponent<RoamerAnim>().IsAlive()) { continue; }
-            var dist = Vector2.Distance(r.transform.position, pos);
-            var noLightPastDistance = 3f;
-            var fullLightUpToDistance = 1f;
-            total += Mathf.InverseLerp(noLightPastDistance, fullLightUpToDistance, dist);
-        }
-        return total;
     }
 
     public List<GameObject> RoamersNear(Vector2 pos, float maxDistance = 1f)
