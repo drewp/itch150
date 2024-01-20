@@ -12,7 +12,6 @@ public class RoamerManager : MonoBehaviour
     }
     void Update()
     {
-        Health -= 1;
         if(Health <= 0)
         {
             RoamerSpawn2.DifficultyMod += 0.03f;

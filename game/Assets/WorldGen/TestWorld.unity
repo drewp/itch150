@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8c82453d365e84ea8a533993025ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Hole: {fileID: 0}
+  Hole: {fileID: 937566171984704459, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
 --- !u!1 &973476919
 GameObject:
   m_ObjectHideFlags: 0
