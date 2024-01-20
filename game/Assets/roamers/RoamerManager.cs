@@ -28,7 +28,7 @@ public class RoamerManager : MonoBehaviour
         {
             Debug.Log("W");
             PlayManager.health -= damage;
-            gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 10000);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 5000);
         }
     }
 }

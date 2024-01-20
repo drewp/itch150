@@ -106,7 +106,7 @@ public class RoamerWalk : MonoBehaviour
     {
         var me = transform.position;
         var away = (me - pos).normalized;
-        goalPos = me + away * closeToPlayerThreshold;
+        goalPos = me + away * (closeToPlayerThreshold);
         curSpeed = hiSpeed;
     }
     private static Vector3 RandDirection()

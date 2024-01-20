@@ -156,7 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c044191cccb2b4cb90f2f7ecb9a4b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!50 &1452734845
 Rigidbody2D:
   serializedVersion: 4
@@ -218,7 +217,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

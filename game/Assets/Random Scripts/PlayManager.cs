@@ -16,8 +16,8 @@ public class PlayManager : MonoBehaviour
     {
         if(health <= 0)
         {
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
+          //  Scene scene = SceneManager.GetActiveScene();
+            //SceneManager.LoadScene(scene.name);
         }
     }
 }
