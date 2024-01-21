@@ -86,7 +86,7 @@ public class RoamerSpawn2 : MonoBehaviour
             RandomSpawn(transform.position, 45, 19);
         }
         if (GetNearRoamers(new Vector2(50, 50)) <= 3 + (int)Difficulty())
-        {
+        {;
             RandomSpawn(transform.position, 45, 20);
         }
         if (GetNearRoamersOfType(new Vector2(55, 55), 1) <= 5 * Difficulty())
@@ -167,6 +167,7 @@ public class RoamerSpawn2 : MonoBehaviour
             if (CheckSpawnConditions(Chosen, PlayerPosition, ReqPlayerOffset / 2))
             {
                 Spawn(Chosen, 0);
+                return;
             }
             if (loop == 100)
             {
