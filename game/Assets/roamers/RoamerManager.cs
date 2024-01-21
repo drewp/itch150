@@ -40,10 +40,10 @@ public class RoamerManager : MonoBehaviour
         }
         if (Health <= 0 && !CantDie)
         {
-            if(Random.Range(1, 10 * kindling.kindle) <= 0.9)
-            {
-                Instantiate(Kindle, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
-            }
+            //if(Random.Range(1, 10 * kindling.kindle) <= 0.9) { Instantiate(Kindle, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity); }
+            
+                
+            
             switch (Type)
             {
                 case 0:

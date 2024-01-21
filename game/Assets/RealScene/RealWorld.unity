@@ -149,12 +149,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80192883}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1054474014}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &80192885
 MonoBehaviour:
@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Roamer: {fileID: 3505843964317000304, guid: 23b959d6db5a20b2cb66beb23bc8f2f0, type: 3}
-  MaxRoamers: 10
   RoamerGroup: {fileID: 4764335858515752818, guid: 11375c2e584cd384b83739ed8403e7a5, type: 3}
   RoamerGroupee: {fileID: 201694265352034230, guid: 5977cbfee7ac09c4a8e19f470be95b66, type: 3}
   LoadTestDemo: 0
@@ -247,6 +246,7 @@ GameObject:
   - component: {fileID: 301936925}
   - component: {fileID: 301936924}
   - component: {fileID: 301936923}
+  - component: {fileID: 301936926}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -263,11 +263,11 @@ Transform:
   m_GameObject: {fileID: 301936921}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -91}
+  m_LocalPosition: {x: 0, y: 0, z: -94}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1054474014}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &301936923
 MonoBehaviour:
@@ -372,6 +372,19 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &301936926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301936921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f166b95ca6fad9a40aad400ee2b791cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1054474003}
 --- !u!1001 &340646500
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -410,7 +423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4099282558782819962, guid: 417fa4ab015960749a3cf65518fc8617, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4099282558782819962, guid: 417fa4ab015960749a3cf65518fc8617, type: 3}
       propertyPath: m_LocalRotation.w
@@ -549,7 +562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0005, y: -4.6145}
+  m_AnchoredPosition: {x: -0.0005, y: 0}
   m_SizeDelta: {x: 416.5932, y: 53.689}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504252069
@@ -599,8 +612,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -779,6 +792,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350504108696317908, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe332a5061f7b10aa792e72405710d7, type: 2}
     - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07673927
@@ -825,9 +842,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8258145828123874408, guid: 6085130f34d530d48b86118050a116fb, type: 3}
       propertyPath: msg
-      value: 'the number buttons 1, 2, and 3 can be used to burn the respective item
-        in the hot bar slot. Pro tip: each ingredient has a different effect on the
-        spell. Experiment!'
+      value: 'If you are running low on kindling, right click ona light flower to
+        burn it (not the spawn flower).the number buttons 1, 2, and 3 can be used
+        to burn the respective item in the hot bar slot. Pro tip: each ingredient
+        has a different effect on the spell. Experiment!'
       objectReference: {fileID: 0}
     - target: {fileID: 8258145828123874408, guid: 6085130f34d530d48b86118050a116fb, type: 3}
       propertyPath: text
@@ -896,7 +914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8440408743485056953, guid: 392f45f7020515c48af1a942eee2b25d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8440408743485056953, guid: 392f45f7020515c48af1a942eee2b25d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1420,6 +1438,8 @@ GameObject:
   - component: {fileID: 1054474006}
   - component: {fileID: 1054474005}
   - component: {fileID: 1054474004}
+  - component: {fileID: 1054474015}
+  - component: {fileID: 1054474016}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -1452,6 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6dfe55f8a408b48b4a50fab0bfbc89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kindle: 1
   kindlebar: {fileID: 2115655572}
 --- !u!58 &1054474006
 CircleCollider2D:
@@ -1620,7 +1641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 1054474011}
-  runSpeed: 10
+  runSpeed: 5
 --- !u!212 &1054474013
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1685,11 +1706,45 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 301936922}
-  - {fileID: 80192884}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1054474015
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054474003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1733740ee22385146a05ba70fe8d29b4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1054474016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054474003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e506b111f2b0d3642a1b0e3dc0868077, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 1054474011}
+  anm: {fileID: 1054474015}
+  sr: {fileID: 1054474013}
 --- !u!1 &1132194205
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,7 +3316,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Flower
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8109552667666299924, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8109552667666299924, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2904242756358501435, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3450,7 +3514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1602320056556123916, guid: 5083e2f5726146940be0bd124c623850, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1602320056556123916, guid: 5083e2f5726146940be0bd124c623850, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3818,6 +3882,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350504108696317908, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe332a5061f7b10aa792e72405710d7, type: 2}
     - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07673927
@@ -61679,6 +61747,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1054474014}
+  - {fileID: 301936922}
+  - {fileID: 80192884}
   - {fileID: 580307218}
   - {fileID: 203321124}
   - {fileID: 675270346}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class kindling : MonoBehaviour
 {
-    public static float kindle = 1.0f;
+    public float kindle = 1.0f;
     [SerializeField]
     private Image kindlebar;
     private void Start()
