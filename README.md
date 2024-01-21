@@ -8,3 +8,5 @@ Commit tests:
 hi
 
 hi
+
+hi
