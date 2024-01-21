@@ -23,6 +23,10 @@ public class RoamerManager : MonoBehaviour
         Ai.intoLight = lighttolerance;
         Damage = damage;
     }
+    public void SetStats(int health)
+    {
+        Health = health;
+    }
     void Start()
     {
         

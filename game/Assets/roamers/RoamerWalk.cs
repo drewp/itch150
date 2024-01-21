@@ -22,6 +22,8 @@ public class RoamerWalk : MonoBehaviour
     private float randId;
     private float curSpeed;
 
+    public bool Animation = true;
+
     void Start()
     {
         randId = Random.value;
@@ -29,11 +31,14 @@ public class RoamerWalk : MonoBehaviour
 
     void Update()
     {
-        GetComponent<RoamerAnim>().Face(goalPos.x > transform.position.x);
-
-        if (GetComponent<RoamerAnim>().IsAlive())
+        if (Animation == true)
         {
-            Debug.DrawLine(transform.position, goalPos);
+            GetComponent<RoamerAnim>().Face(goalPos.x > transform.position.x);
+
+            if (GetComponent<RoamerAnim>().IsAlive())
+            {
+                Debug.DrawLine(transform.position, goalPos);
+            }
         }
     }
 
@@ -41,7 +46,7 @@ public class RoamerWalk : MonoBehaviour
     {
         var rb = GetComponent<Rigidbody2D>();
 
-        if (!GetComponent<RoamerAnim>().IsAlive())
+        if (Animation == true && !GetComponent<RoamerAnim>().IsAlive())
         {
             rb.simulated = false;
             return;

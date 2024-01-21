@@ -12,6 +12,8 @@ public class RoamerSpawn2 : MonoBehaviour
     public static float CurrentDifficulty = 0;
     private int counter = 0;
 
+    public GameObject RoamerGroup;
+    public GameObject RoamerGroupee;
 
     //Waves
     int WaveTimer = 60000;
@@ -39,16 +41,18 @@ public class RoamerSpawn2 : MonoBehaviour
     public static float ElapsedMultiplier = 1;
     public bool LoadTestDemo = false;
 
+
     void Start()
     {
         CurrentWaveTimer = WaveTimer;
         CurrentRandomSpawnTimer = RandomSpawnTimer;
         CurrentEliteEnemyTimer = EliteEnemyTimer;
         EnrageLeft = Enrage;
-        if (LoadTestDemo)
+        for(int i = 0; i < 50; i++)
         {
-            MakeRing(/*radius=*/25, /*count=*/100);
+            //SpawnWave(BaseWaveEnemyAmount, transform.position, 60, 30 - ((int)Difficulty()), 3);
         }
+        SpawnWave(BaseWaveEnemyAmount, transform.position, 60, 30 - ((int)Difficulty()), 3);
     }
 
     void MakeRing(float radius, int count)
@@ -137,10 +141,12 @@ public class RoamerSpawn2 : MonoBehaviour
                 break;
             }
         }
-        for (int i = 0; i < EnemyAmount; i++)
+        for(int i = 0; i < AllPos.Length; i++)
         {
             Spawn(AllPos[i], 1);
         }
+        return;
+        SpawnRoamerGroup(AllPos, BasePos);
     }
     public float Difficulty()
     {
@@ -249,6 +255,17 @@ public class RoamerSpawn2 : MonoBehaviour
             case 3:
                 Man.SetStats(1000 * (int)Difficulty(), Type, 5 + Difficulty(), 3.6f, 100 * Difficulty(), 2f * Difficulty(), 1f * Difficulty() / 100, 100f * Difficulty(), 120 * Difficulty());
                 break;
+        }
+    }
+    public void SpawnRoamerGroup(Vector2[] Vec, Vector3 BasePosition)
+    {
+        GameObject G = Instantiate(RoamerGroup, new Vector3(BasePosition.x, BasePosition.y, -1), Quaternion.identity);
+        G.GetComponent<RoamerWalk>().Animation = false;
+        for (int i = 0; i < Vec.Length; i++)
+        {
+            GameObject G2 = Instantiate(RoamerGroupee, G.transform, true);
+            G2.transform.position = new Vector3(Vec[i].x, Vec[i].y, -1);
+            G2.GetComponent<RoamerManager>().SetStats(10);
         }
     }
 }
