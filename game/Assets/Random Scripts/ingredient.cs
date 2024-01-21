@@ -10,6 +10,7 @@ public class ingredient : MonoBehaviour
     public float value;
     [SerializeField]
     private inventory inventory;
+    private GameObject playerObj;
     private Transform player;
     private Vector3 scaleChange;
     [SerializeField]
@@ -17,7 +18,9 @@ public class ingredient : MonoBehaviour
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        player = playerObj.transform;
+        inventory = player.GetComponent<inventory>();
         scaleChange = new Vector3(+scaleamount, +scaleamount, -0.0f);
     }
 
