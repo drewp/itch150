@@ -56,7 +56,6 @@ public class beam_spell : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10f;
 
-
         Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
         mousePos.x = mousePos.x - objectPos.x;
         mousePos.y = mousePos.y - objectPos.y;
@@ -64,7 +63,7 @@ public class beam_spell : MonoBehaviour
         Vector3 scl = new Vector3(inventory.Meat / 1.5f, inventory.Meat / 1.5f, 0f);
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
-        float particleStartSize = inventory.Root / 2.2f;
+        float particleStartSize = inventory.Root / 2.2f / 2f;
         CreateBeamInstance(angle, scl, customColor, particleStartSize);
     }
 
