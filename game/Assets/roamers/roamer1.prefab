@@ -98,7 +98,6 @@ GameObject:
   - component: {fileID: 4944400603598204353}
   - component: {fileID: 2715877658418998737}
   - component: {fileID: 3285669361241564012}
-  - component: {fileID: 5676424989759856273}
   - component: {fileID: 2289484081533662772}
   m_Layer: 7
   m_Name: roamer1
@@ -221,21 +220,6 @@ CircleCollider2D:
   m_Offset: {x: 0.020241857, y: 0}
   serializedVersion: 2
   m_Radius: 0.7797581
---- !u!114 &5676424989759856273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3505843964317000304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51194af24eb38f823ae508512cb4e4dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brightRadius: 0
-  darkRadius: 5
-  brightness: 1
 --- !u!114 &2289484081533662772
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
-
+using UnityEngine.Rendering.Universal;
 public class LightMeter : MonoBehaviour
 {
 
@@ -32,22 +32,13 @@ public class LightMeter : MonoBehaviour
 
     public float LightIntensityAtPoint(Vector2 pos)
     {
-        var total = 0.0f;
-
-        foreach (Glow glowComponent in FindObjectsOfType<Glow>())
+        Light2D[] lights = FindObjectsOfType<Light2D>();
+        float totalBrightness = 0f;
+        foreach (Light2D light in lights)
         {
-            // redo as brightness
-            if (glowComponent.TryGetComponent<RoamerAnim>(out RoamerAnim anim))
-            {
-                if (anim.IsAlive())
-                {
-                    continue;
-                }
-            }
-
-            var dist = Vector2.Distance(glowComponent.transform.position, pos);
-            total += Mathf.InverseLerp(glowComponent.darkRadius, glowComponent.brightRadius, dist);
+            float distance = Vector2.Distance(pos, light.transform.position);
+            totalBrightness += light.intensity * Mathf.InverseLerp(light.pointLightOuterRadius, light.pointLightInnerRadius, distance);
         }
-        return total;
+        return totalBrightness;
     }
 }
