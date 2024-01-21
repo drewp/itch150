@@ -20,10 +20,10 @@ public class beam_spell : MonoBehaviour
     private float spell_speed = 60f;
     [SerializeField]
     Material mat;
-    [SerializeField]
-    SpriteRenderer sr;
-    [SerializeField]
-    ParticleSystem Particles;
+    // [SerializeField]
+    // SpriteRenderer sr;
+    // [SerializeField]
+    // ParticleSystem Particles;
     private int counter = 0;
     // Start is called before the first frame update
     void Start()
@@ -55,10 +55,10 @@ public class beam_spell : MonoBehaviour
 
         Color customColor = new Color(inventory.Root / 2, inventory.Meat / 2, inventory.Flower, 1.0f);
         mat.SetColor("_Color", customColor);
-        sr.color = customColor;
-        var main = Particles.main;
-        main.startColor = customColor;
-        main.startSize = inventory.Root / 2.2f;
+        // sr.color = customColor;
+        // var main = Particles.main;
+        // main.startColor = customColor;
+        // main.startSize = inventory.Root / 2.2f;
         projectileObj.transform.localScale = new Vector3(inventory.Meat / 1.5f, inventory.Meat / 1.5f, 0f);
         if (inventory.Meat != 0f)
         {

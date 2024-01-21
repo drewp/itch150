@@ -1262,7 +1262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 973476928}
   kindling: {fileID: 973476930}
-  projectileObj: {fileID: 9157110534159458741, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
+  projectileObj: {fileID: 9157110534159458741, guid: 13f733b77b7141a4aba305c5c18c0bab, type: 3}
   spell_speed: 60
   mat: {fileID: 2100000, guid: 5ff08f71e11d35f44bdcd6a5bb3a113e, type: 2}
   sr: {fileID: 1856923635610404593, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
