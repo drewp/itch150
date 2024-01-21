@@ -6,6 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class LightSpawn : MonoBehaviour
 {
     public GameObject Hole;
+    
 
     void Update()
     {
@@ -18,6 +19,7 @@ public class LightSpawn : MonoBehaviour
     }
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
     {
+        bool delight = false;
         LightMeter meter = FindAnyObjectByType<LightMeter>();
         if (meter.LightIntensityAtPoint(pos) >= 5f)
         {
@@ -31,12 +33,18 @@ public class LightSpawn : MonoBehaviour
             if (Vector2.Distance(Flow[i].transform.position, pos) <= 0.5f)
             {
                 Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
-                return;
+                
+                delight = true;
             }
         }
         GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
         Obj.transform.localScale = new Vector3(size, size, 1);
         Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
         Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
+        if (delight && Obj.transform.GetChild(1).name == "Light")
+        {
+            Destroy(Obj.transform.GetChild(1).gameObject);
+        }
+        return;
     }
 }
