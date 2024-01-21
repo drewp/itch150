@@ -55,7 +55,7 @@ public class RoamerSpawn2 : MonoBehaviour
     {
         for (var i = 0.0f; i < 6.28; i += 6.28f / count)
         {
-            Make(new Vector2(radius * Mathf.Sin(i), radius * Mathf.Cos(i)));
+            Spawn(new Vector2(radius * Mathf.Sin(i), radius * Mathf.Cos(i)), 0);
         }
     }
     GameObject Make(Vector3 pos)
