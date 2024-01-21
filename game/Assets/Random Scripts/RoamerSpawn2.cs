@@ -48,11 +48,6 @@ public class RoamerSpawn2 : MonoBehaviour
         CurrentRandomSpawnTimer = RandomSpawnTimer;
         CurrentEliteEnemyTimer = EliteEnemyTimer;
         EnrageLeft = Enrage;
-        for(int i = 0; i < 50; i++)
-        {
-            //SpawnWave(BaseWaveEnemyAmount, transform.position, 60, 30 - ((int)Difficulty()), 3);
-        }
-        SpawnWave(BaseWaveEnemyAmount, transform.position, 60, 30 - ((int)Difficulty()), 3);
     }
 
     void MakeRing(float radius, int count)

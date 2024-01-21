@@ -9,6 +9,9 @@ public class RoamerManager : MonoBehaviour
     public bool CantDie;
     float Damage = 10;
     public int Type = 0;
+
+    public GameObject BlueMeat;
+    public GameObject Kindle;
     public void SetStats(int health, int type, float speed, float size, float viewdistance, float lighttolerance, float find, float playerfind, float damage)
     {
         RoamerWalk Ai = gameObject.GetComponent<RoamerWalk>();
@@ -39,6 +42,10 @@ public class RoamerManager : MonoBehaviour
         }
         if (Health <= 0 && CantDie == false)
         {
+            if(Random.Range(1, 10 * kindling.kindle) <= 0.9)
+            {
+                Instantiate(Kindle, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
+            }
             switch (Type)
             {
                 case 0:

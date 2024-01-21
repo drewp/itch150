@@ -141,8 +141,10 @@ MonoBehaviour:
   closeToPlayerThreshold: 2
   maxPlayerSpottingDistance: 10
   maxTimeOnOneGoal: 3
+  intoLight: 0.2
   loSpeed: 1
   hiSpeed: 4
+  Animation: 1
 --- !u!114 &4944400603598204353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +250,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   Hole: {fileID: 937566171984704459, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+  CantDie: 0
+  Type: 0
+  BlueMeat: {fileID: 0}
+  Kindle: {fileID: 6310583392590091864, guid: 0e01c5c55ff0a494ea1188de4aa4a72b, type: 3}
 --- !u!1 &5788792118865806882
 GameObject:
   m_ObjectHideFlags: 0
