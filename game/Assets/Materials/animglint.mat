@@ -63,9 +63,9 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _noise: 0.15
-    - _pixelate: 23.81
+    - _pixelate: 31.43
     - _rotation: 0.21
-    - _speed: 1
+    - _speed: 0.43
     m_Colors:
     - _Color: {r: 0.26497656, g: 0.8402091, b: 0.8292794, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
