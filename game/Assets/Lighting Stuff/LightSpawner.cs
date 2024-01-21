@@ -28,7 +28,7 @@ public class LightSpawn : MonoBehaviour
         GameObject[] Flow = GameObject.FindGameObjectsWithTag("Flower");
         for (int i = 0; i < Flow.Length; i++)
         {
-            if (Vector2.Distance(Flow[i].transform.position, pos) <= 0.5f)
+            if (Vector2.Distance(Flow[i].transform.position, pos) <= 2)
             {
                 Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
                 return;

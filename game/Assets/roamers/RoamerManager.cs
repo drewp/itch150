@@ -36,14 +36,14 @@ public class RoamerManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.K))
         {
-            Health = 0;
+            //Health = 0;
         }
         if (Health <= 0 && !CantDie)
         {
-            //if(Random.Range(1, 10 * kindling.kindle) <= 0.9) { Instantiate(Kindle, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity); }
-            
-                
-            
+            if(Random.Range(1, 10) == 1)
+            {
+                Instantiate(BlueMeat, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
+            }
             switch (Type)
             {
                 case 0:
