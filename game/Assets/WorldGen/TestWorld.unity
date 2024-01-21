@@ -1220,29 +1220,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 717814750677442057, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
-      propertyPath: m_FalloffIntensity
-      value: 0.629
-      objectReference: {fileID: 0}
-    - target: {fileID: 717814750677442057, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
-      propertyPath: m_PointLightInnerRadius
-      value: 0.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 717814750677442057, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
-      propertyPath: m_PointLightOuterRadius
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 937566171984704459, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
       propertyPath: m_Name
       value: HolePrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300964184917885404, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300964184917885404, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2300964184917885404, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
       propertyPath: m_LocalPosition.x

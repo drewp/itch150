@@ -20,11 +20,6 @@ public class LightSpawn : MonoBehaviour
             SpawnLight(3.8f, pos, Hole, 0.5f, 3.4f);
         }
     }
-    public static void SpawnLight(float size, Transform transform, GameObject Hole)
-    {
-        GameObject Obj = Instantiate(Hole, transform.position, transform.rotation) as GameObject;
-        Obj.transform.localScale = new Vector3(size, size, 1);
-    }
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
     {
         LightMeter L = new LightMeter();
