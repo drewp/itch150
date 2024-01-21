@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Roamer: {fileID: 3505843964317000304, guid: 23b959d6db5a20b2cb66beb23bc8f2f0, type: 3}
   MaxRoamers: 10
-  LoadTestDemo: 1
+  LoadTestDemo: 0
 --- !u!114 &1154618144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1162,6 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71888c3de3e93880aec256ef03bb640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugLightField: 0
 --- !u!1001 &1388382127
 PrefabInstance:
   m_ObjectHideFlags: 0
