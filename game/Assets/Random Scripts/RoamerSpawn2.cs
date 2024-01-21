@@ -157,13 +157,12 @@ public class RoamerSpawn2 : MonoBehaviour
         {
             Spawn(AllPos[i], 1);
         }
-        return;
-        SpawnRoamerGroup(AllPos, BasePos);
+        // SpawnRoamerGroup(AllPos, BasePos);
     }
     public float Difficulty()
     {
         float m = 0;
-        if ((Mathf.Abs((transform.position.x + transform.position.y) / 500) < 0.1f))
+        if (Mathf.Abs((transform.position.x + transform.position.y) / 500) < 0.1f)
         {
             m = 1;
         }
@@ -257,16 +256,16 @@ public class RoamerSpawn2 : MonoBehaviour
         switch (Type)
         {
             case 0:
-                Man.SetStats(100 * (int)Difficulty(), Type, 3 + Difficulty(), 1, 15 * Difficulty(), 0.1f * Difficulty(), 0.2f * Difficulty() / 100, 1.3f * Difficulty(), 13 * Difficulty());
+                Man.SetStats(100 * (int)Difficulty(), Type, 3 + Difficulty(), 1, 15 * Difficulty(), 0.1f * Difficulty(), /*playerAffinity=*/0.2f * Difficulty() / 100, 1.3f * Difficulty(), 13 * Difficulty());
                 break;
             case 1:
-                Man.SetStats(90 * (int)Difficulty(), Type, 2 + Difficulty(), 0.7f, 15 * Difficulty(), 0.3f * Difficulty(), 0.2f * Difficulty() / 100, 2.5f * Difficulty(), 8 * Difficulty());
+                Man.SetStats(90 * (int)Difficulty(), Type, 2 + Difficulty(), 0.7f, 15 * Difficulty(), 0.3f * Difficulty(), /*playerAffinity=*/0.2f * Difficulty() / 100, 2.5f * Difficulty(), 8 * Difficulty());
                 break;
             case 2:
-                Man.SetStats(1000 * (int)Difficulty(), Type, 4 + Difficulty(), 3, 20 * Difficulty(), 1f * Difficulty(), 0.4f * Difficulty() / 100, 5f * Difficulty(), 70 * Difficulty());
+                Man.SetStats(1000 * (int)Difficulty(), Type, 4 + Difficulty(), 3, 20 * Difficulty(), 1f * Difficulty(), /*playerAffinity=*/0.4f * Difficulty() / 100, 5f * Difficulty(), 70 * Difficulty());
                 break;
             case 3:
-                Man.SetStats(1000 * (int)Difficulty(), Type, 5 + Difficulty(), 3.6f, 100 * Difficulty(), 2f * Difficulty(), 1f * Difficulty() / 100, 100f * Difficulty(), 120 * Difficulty());
+                Man.SetStats(1000 * (int)Difficulty(), Type, 5 + Difficulty(), 3.6f, 100 * Difficulty(), 2f * Difficulty(), /*playerAffinity=*/1f * Difficulty() / 100, 100f * Difficulty(), 120 * Difficulty());
                 break;
         }
     }

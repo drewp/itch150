@@ -6,10 +6,6 @@ using UnityEngine.Rendering.Universal;
 public class LightSpawn : MonoBehaviour
 {
     public GameObject Hole;
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -23,23 +19,24 @@ public class LightSpawn : MonoBehaviour
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
     {
         LightMeter meter = FindAnyObjectByType<LightMeter>();
-        if(meter.LightIntensityAtPoint(pos) < 0.5f)
+        if (meter.LightIntensityAtPoint(pos) >= 0.5f)
         {
-            GameObject[] Flow = GameObject.FindGameObjectsWithTag("Flower");
-            for (int i = 0; i < Flow.Length; i++)
-            {
-                if (Vector2.Distance(Flow[i].transform.position, pos) <= 2)
-                {
-                    Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
-                    //SpriteRenderer d = Hole.transform.Find("Rendering").GetComponent<SpriteRenderer>();
-                    //d.size = new Vector3(0, 0, 0);
-                    return;
-                }
-            }
-            GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
-            Obj.transform.localScale = new Vector3(size, size, 1);
-            Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
-            Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
+            // a light here would have little effect
+            return;
         }
+
+        GameObject[] Flow = GameObject.FindGameObjectsWithTag("Flower");
+        for (int i = 0; i < Flow.Length; i++)
+        {
+            if (Vector2.Distance(Flow[i].transform.position, pos) <= 2)
+            {
+                Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
+                return;
+            }
+        }
+        GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
+        Obj.transform.localScale = new Vector3(size, size, 1);
+        Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
+        Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
     }
 }

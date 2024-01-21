@@ -12,7 +12,7 @@ public class RoamerManager : MonoBehaviour
 
     public GameObject BlueMeat;
     public GameObject Kindle;
-    public void SetStats(int health, int type, float speed, float size, float viewdistance, float lighttolerance, float find, float playerfind, float damage)
+    public void SetStats(int health, int type, float speed, float size, float viewdistance, float lighttolerance, float playerAffinity, float closeThresh, float damage)
     {
         RoamerWalk Ai = gameObject.GetComponent<RoamerWalk>();
         gameObject.transform.localScale = new Vector3(size, size, 1);
@@ -20,27 +20,25 @@ public class RoamerManager : MonoBehaviour
         Type = type;
         Ai.loSpeed = speed - (speed / 3);
         Ai.hiSpeed = speed;
-        Ai.playerAffinity = find;
-        Ai.closeToPlayerThreshold = playerfind;
+        Ai.playerAffinity = playerAffinity;
+        Ai.closeToPlayerThreshold = closeThresh;
         Ai.maxPlayerSpottingDistance = viewdistance;
         Ai.intoLight = lighttolerance;
         Damage = damage;
     }
+
     public void SetStats(int health)
     {
         Health = health;
     }
-    void Start()
-    {
-        
-    }
+
     void Update()
     {
         if (Input.GetKey(KeyCode.K))
         {
             Health = 0;
         }
-        if (Health <= 0 && CantDie == false)
+        if (Health <= 0 && !CantDie)
         {
             if(Random.Range(1, 10 * kindling.kindle) <= 0.9)
             {
