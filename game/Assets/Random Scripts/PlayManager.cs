@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class PlayManager : MonoBehaviour
 {
     public static float health = 300;
+    public static bool HasKey;
     void Start()
     {
+        HasKey = false;
         health = 300;   
     }
 
@@ -26,6 +28,15 @@ public class PlayManager : MonoBehaviour
         {
             health += 0.001f;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Our Lord And Saviour Jesus Christ Bless His Holy Name")
+        {
+            HasKey = true;
+        }
+        Destroy(this.gameObject);
     }
 
 }
