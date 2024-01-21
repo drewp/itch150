@@ -24,26 +24,17 @@ public class beam_spell : MonoBehaviour
     SpriteRenderer sr;
     [SerializeField]
     ParticleSystem Particles;
-
-
-
-
-
+    private int counter = 0;
     // Start is called before the first frame update
     void Start()
     {
-
         projectileRb = projectileObj.GetComponent<Rigidbody2D>();
-
     }
 
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && kindling.kindle > 0 && inventory.Meat > 0 && inventory.Root > 0 && inventory.Flower > 0)
         {
-
             FireBeam();
         }
 
@@ -66,6 +57,7 @@ public class beam_spell : MonoBehaviour
         mat.SetColor("_Color", customColor);
         sr.color = customColor;
         var main = Particles.main;
+        main.startColor = customColor;
         main.startSize = inventory.Root / 2.2f;
         projectileObj.transform.localScale = new Vector3(inventory.Meat / 1.5f, inventory.Meat / 1.5f, 0f);
         if (inventory.Meat != 0f)
@@ -81,9 +73,8 @@ public class beam_spell : MonoBehaviour
         mousePos.y = mousePos.y - objectPos.y;
 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        Rigidbody2D beam;
-        beam = Instantiate(projectileRb, transform.position, Quaternion.Euler(new Vector3(0, 0, angle))) as Rigidbody2D;
-
-        beam.AddForce(beam.transform.right * spell_speed);
+        GameObject beam = Instantiate(projectileObj, transform.position, Quaternion.Euler(new Vector3(0, 0, angle)));
+        beam.name = "projectile" + (counter++);
+        beam.GetComponent<Rigidbody2D>().AddForce(beam.transform.right * spell_speed);
     }
 }
