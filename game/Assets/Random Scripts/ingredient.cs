@@ -34,6 +34,7 @@ public class ingredient : MonoBehaviour
             if (Input.GetKeyDown("e"))
             {
                 inventory.add(name, value);
+                Destroy(gameObject);
                 
             }
 
