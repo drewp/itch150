@@ -1265,8 +1265,6 @@ MonoBehaviour:
   projectileObj: {fileID: 9157110534159458741, guid: 13f733b77b7141a4aba305c5c18c0bab, type: 3}
   spell_speed: 60
   mat: {fileID: 2100000, guid: 5ff08f71e11d35f44bdcd6a5bb3a113e, type: 2}
-  sr: {fileID: 1856923635610404593, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
-  Particles: {fileID: 8634375224840446206, guid: 111a007e72fe54849ac14fe48e9b97fd, type: 3}
 --- !u!114 &973476928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1591,6 +1589,10 @@ PrefabInstance:
     - target: {fileID: 2947631041366547074, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5228096808666208235, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_TagString
+      value: Flower
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
