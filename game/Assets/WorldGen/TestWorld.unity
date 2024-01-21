@@ -1220,6 +1220,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 717814750677442057, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 4.53
+      objectReference: {fileID: 0}
     - target: {fileID: 937566171984704459, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
       propertyPath: m_Name
       value: HolePrefab
@@ -1263,6 +1267,22 @@ PrefabInstance:
     - target: {fileID: 2300964184917885404, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947631041366547074, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947631041366547074, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947631041366547074, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2947631041366547074, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
