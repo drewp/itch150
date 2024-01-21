@@ -4,9 +4,23 @@ using UnityEngine;
 
 public class Flower_consume : MonoBehaviour
 {
+    [SerializeField]
+    kindling kindling;
+    [SerializeField]
+    GameObject parent;
+    
+    void Start()
+    {
+        kindling = GameObject.FindGameObjectWithTag("Player").GetComponent<kindling>();
+
+    }
     void OnMouseOver()
     {
-        //If your mouse hovers over the GameObject with the script attached, output this message
-        Debug.Log("Mouse is over GameObject.");
+        if (Input.GetMouseButtonDown(1)) 
+        {
+            kindling.burn(-50);
+            Destroy(parent);
+        }
+        
     }
 }
