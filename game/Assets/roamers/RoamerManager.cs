@@ -43,14 +43,14 @@ public class RoamerManager : MonoBehaviour
                     break;
                 case 1:
                     RoamerSpawn2.ElapsedMultiplier += 0.02f;
-                    LightSpawn.SpawnLight(3.0f, transform.position, Hole, 0.3f, 3.5f);
+                    LightSpawn.SpawnLight(6f, transform.position, Hole, 0.3f, 3.5f);
                     break;
                 case 2:
                     RoamerSpawn2.ElapsedMultiplier += 0.14f;
-                    LightSpawn.SpawnLight(5f, transform.position, Hole, 1.2f, 5.6f);
+                    LightSpawn.SpawnLight(14f, transform.position, Hole, 1.2f, 5.6f);
                     break;
                 case 3:
-                    LightSpawn.SpawnLight(8f, transform.position, Hole, 2.5f, 7.9f);
+                    LightSpawn.SpawnLight(20f, transform.position, Hole, 2.5f, 7.9f);
                     RoamerSpawn2.ElapsedMultiplier += 0.3f;
                     break;
             }
