@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itch150
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: itch150
+  template:
+    metadata:
+      labels:
+        app: itch150
+      annotations:
+        prometheus.io/scrape: "false"
+    spec:
+
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: itch150-nginx-conf
+      containers:
+        - name: itch150
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - { name: nginx-conf, mountPath: "/etc/nginx/" }
+          image: reg:5000/itch150_image
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: itch150
+spec:
+  ports:
+  - {port: 80, targetPort: 80}
+  selector:
+    app: itch150
