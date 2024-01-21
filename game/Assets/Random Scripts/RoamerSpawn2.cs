@@ -10,6 +10,7 @@ public class RoamerSpawn2 : MonoBehaviour
     public static float Mod = 0;
     public int MaxRoamers = 10;
     public static float CurrentDifficulty = 0;
+    private int counter = 0;
 
 
     //Waves
@@ -36,6 +37,7 @@ public class RoamerSpawn2 : MonoBehaviour
     //easy = 0.75, normal = 1, hard = 1.5
     public static int Multiplier = 1;
     public static float ElapsedMultiplier = 1;
+    public bool LoadTestDemo = false;
 
     void Start()
     {
@@ -43,6 +45,27 @@ public class RoamerSpawn2 : MonoBehaviour
         CurrentRandomSpawnTimer = RandomSpawnTimer;
         CurrentEliteEnemyTimer = EliteEnemyTimer;
         EnrageLeft = Enrage;
+        if (LoadTestDemo)
+        {
+            MakeRing(/*radius=*/25, /*count=*/50);
+        }
+    }
+
+    void MakeRing(float radius, int count)
+    {
+        for (var i = 0.0f; i < 6.28; i += 6.28f / count)
+        {
+            Make(new Vector2(radius * Mathf.Sin(i), radius * Mathf.Cos(i)));
+        }
+    }
+    GameObject Make(Vector3 pos)
+    {
+        var m = Instantiate(Roamer, transform);
+        m.name = "spawnedRoamer" + counter;
+        m.transform.position = pos;
+        counter++;
+        return m;
+
     }
     void FixedUpdate()
     {
@@ -210,7 +233,7 @@ public class RoamerSpawn2 : MonoBehaviour
     }
     public void Spawn(Vector2 Position, int Type)
     {
-        GameObject Roam = Instantiate(Roamer, new Vector3(Position.x, Position.y, -1), Quaternion.identity);
+        GameObject Roam = Make(new Vector3(Position.x, Position.y));
         RoamerManager Man = Roam.GetComponent<RoamerManager>();
         switch (Type)
         {
