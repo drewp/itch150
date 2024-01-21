@@ -936,6 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 896665773}
   - component: {fileID: 896665774}
+  - component: {fileID: 896665775}
   m_Layer: 0
   m_Name: LightManager
   m_TagString: Untagged
@@ -971,6 +972,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hole: {fileID: 937566171984704459, guid: f1ab2719609ae0440b83dabb2577e9b3, type: 3}
+--- !u!114 &896665775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896665771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71888c3de3e93880aec256ef03bb640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugLightField: 0
 --- !u!1 &973476919
 GameObject:
   m_ObjectHideFlags: 0
