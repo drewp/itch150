@@ -253,19 +253,20 @@ public class RoamerSpawn2 : MonoBehaviour
     {
         GameObject Roam = Make(new Vector3(Position.x, Position.y));
         RoamerManager Man = Roam.GetComponent<RoamerManager>();
+        var dif = Difficulty();
         switch (Type)
         {
             case 0:
-                Man.SetStats(100 * (int)Difficulty(), Type, 3 + Difficulty(), 1, 15 * Difficulty(), 0.1f * Difficulty(), /*playerAffinity=*/0.2f * Difficulty() / 100, 1.3f * Difficulty(), 13 * Difficulty());
+                Man.SetStats(100 * (int)dif, Type, 3 + dif, 1, 15 * dif, 2.5f * dif, /*playerAffinity=*/0.7f, 1.3f * dif, 13 * dif);
                 break;
             case 1:
-                Man.SetStats(90 * (int)Difficulty(), Type, 2 + Difficulty(), 0.7f, 15 * Difficulty(), 0.3f * Difficulty(), /*playerAffinity=*/0.2f * Difficulty() / 100, 2.5f * Difficulty(), 8 * Difficulty());
+                Man.SetStats(90 * (int)dif, Type, 2 + dif, 0.7f, 15 * dif, 0.3f * dif, /*playerAffinity=*/0.8f, 2.5f * dif, 8 * dif);
                 break;
             case 2:
-                Man.SetStats(1000 * (int)Difficulty(), Type, 4 + Difficulty(), 3, 20 * Difficulty(), 1f * Difficulty(), /*playerAffinity=*/0.4f * Difficulty() / 100, 5f * Difficulty(), 70 * Difficulty());
+                Man.SetStats(1000 * (int)dif, Type, 4 + dif, 3, 20 * dif, 1f * dif, /*playerAffinity=*/0.8f, 5f * dif, 70 * dif);
                 break;
             case 3:
-                Man.SetStats(1000 * (int)Difficulty(), Type, 5 + Difficulty(), 3.6f, 100 * Difficulty(), 2f * Difficulty(), /*playerAffinity=*/1f * Difficulty() / 100, 100f * Difficulty(), 120 * Difficulty());
+                Man.SetStats(1000 * (int)dif, Type, 5 + dif, 3.6f, 100 * dif, 2f * dif, /*playerAffinity=*/1f, 100f * dif, 120 * dif);
                 break;
         }
     }
