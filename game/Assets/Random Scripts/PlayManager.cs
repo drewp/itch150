@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
 {
-    public static int health = 300;
+    public static float health = 300;
     void Start()
     {
-        
+        health = 300;   
     }
 
     // Update is called once per frame
@@ -16,9 +16,157 @@ public class PlayManager : MonoBehaviour
     {
         if(health <= 0)
         {
-          //  Scene scene = SceneManager.GetActiveScene();
-            //SceneManager.LoadScene(scene.name);
+            Application.Quit();
         }
     }
-    
+    private void FixedUpdate()
+    {
+        LightMeter L = new LightMeter();
+        if(L.LightIntensityAtPoint(transform.position) >= 0.5f)
+        {
+            health += 0.001f;
+        }
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Hi :)
