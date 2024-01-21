@@ -20,4 +20,8 @@ public class PlayManager : MonoBehaviour
             //SceneManager.LoadScene(scene.name);
         }
     }
+    private void FixedUpdate()
+    {
+        kindling.kindle += 0.001f;
+    }
 }
