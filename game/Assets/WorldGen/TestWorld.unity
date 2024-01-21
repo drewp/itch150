@@ -175,10 +175,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4159285971564539460, guid: 5083e2f5726146940be0bd124c623850, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bbe332a5061f7b10aa792e72405710d7, type: 2}
     - target: {fileID: 6070505802252951726, guid: 5083e2f5726146940be0bd124c623850, type: 3}
       propertyPath: m_Name
       value: purple_root
@@ -571,10 +567,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: purple_flower
       objectReference: {fileID: 0}
-    - target: {fileID: 3952239858105722500, guid: 392f45f7020515c48af1a942eee2b25d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bbe332a5061f7b10aa792e72405710d7, type: 2}
     - target: {fileID: 7968493534743662114, guid: 392f45f7020515c48af1a942eee2b25d, type: 3}
       propertyPath: value
       value: 2
@@ -937,10 +929,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9191151291697352465, guid: 417fa4ab015960749a3cf65518fc8617, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bbe332a5061f7b10aa792e72405710d7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
