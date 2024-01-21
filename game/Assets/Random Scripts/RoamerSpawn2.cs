@@ -32,7 +32,7 @@ public class RoamerSpawn2 : MonoBehaviour
 
     //Difficulty
     //easy = 0.75, normal = 1, hard = 1.5
-    public static int Multiplier = 1;
+    public static float Multiplier = 0.5f;
     public static float ElapsedMultiplier = 1;
     public bool LoadTestDemo = false;
 
