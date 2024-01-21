@@ -1,0 +1,20 @@
+apiVersion: skaffold/v4beta6
+kind: Config
+metadata:
+  name: itch150
+build:
+  artifacts:
+    - image: reg:5000/itch150_image
+      platforms: [amd64]
+      context: ..
+  tagPolicy:
+    dateTime:
+      format: 2006-01-02_15-04-05
+      timezone: Local
+manifests:
+  rawYaml:
+    - proxy.yaml
+    - deploy.yaml
+    - ingress.yaml
+deploy:
+  kubectl: {}
