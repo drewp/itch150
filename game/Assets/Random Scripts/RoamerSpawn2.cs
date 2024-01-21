@@ -47,7 +47,7 @@ public class RoamerSpawn2 : MonoBehaviour
         EnrageLeft = Enrage;
         if (LoadTestDemo)
         {
-            MakeRing(/*radius=*/25, /*count=*/50);
+            MakeRing(/*radius=*/25, /*count=*/100);
         }
     }
 

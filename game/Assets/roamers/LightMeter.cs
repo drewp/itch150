@@ -7,9 +7,17 @@ using Random = UnityEngine.Random;
 public class LightMeter : MonoBehaviour
 {
 
+    public bool debugLightField = false;
     public void Update()
     {
+        if (debugLightField)
+        {
+            DrawDebugLightField();
+        }
+    }
 
+    void DrawDebugLightField()
+    {
         for (var x = -8f; x < 8f; x += .6f)
         {
             for (var y = -8f; y < 8f; y += .6f)
@@ -31,8 +39,9 @@ public class LightMeter : MonoBehaviour
             // redo as brightness
             if (glowComponent.TryGetComponent<RoamerAnim>(out RoamerAnim anim))
             {
-                if (anim.IsAlive()) { 
-                    continue; 
+                if (anim.IsAlive())
+                {
+                    continue;
                 }
             }
 
