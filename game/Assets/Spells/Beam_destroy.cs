@@ -19,6 +19,7 @@ public class Beam_destroy : MonoBehaviour
             Debug.Log(Damage + inventory.Flower * 8);
 
             collision.gameObject.GetComponent<RoamerManager>().Health -= Damage + inventory.Flower*8;
+
             Destroy(this.gameObject);
         }
     }
