@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+ffmpeg -i $1 -c:v libvpx-vp9 -crf 60 -b:v 0 $1:r-crf60.webm
