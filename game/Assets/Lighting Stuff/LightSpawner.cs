@@ -19,7 +19,7 @@ public class LightSpawn : MonoBehaviour
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
     {
         LightMeter meter = FindAnyObjectByType<LightMeter>();
-        if (meter.LightIntensityAtPoint(pos) >= 0.5f)
+        if (meter.LightIntensityAtPoint(pos) >= 5f)
         {
             // a light here would have little effect
             return;
@@ -28,7 +28,7 @@ public class LightSpawn : MonoBehaviour
         GameObject[] Flow = GameObject.FindGameObjectsWithTag("Flower");
         for (int i = 0; i < Flow.Length; i++)
         {
-            if (Vector2.Distance(Flow[i].transform.position, pos) <= 2)
+            if (Vector2.Distance(Flow[i].transform.position, pos) <= 0.5f)
             {
                 Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
                 return;

@@ -73,31 +73,25 @@ public class RoamerWalk : MonoBehaviour
         {
             var rand = me + RandDirection() * goalDistance;
 
-            if (playerIsInDarkness)
+            
+            var distToPlayer = Vector2.Distance(playerPos, transform.position);
+
+            bool weAreVeryClose = distToPlayer < closeToPlayerThreshold;
+            bool weAreWithinSightDistance = distToPlayer < maxPlayerSpottingDistance;
+
+            if (weAreVeryClose || (weAreWithinSightDistance && LineOfSightToPlayer(player)))
             {
-                var distToPlayer = Vector2.Distance(playerPos, transform.position);
-
-                bool weAreVeryClose = distToPlayer < closeToPlayerThreshold;
-                bool weAreWithinSightDistance = distToPlayer < maxPlayerSpottingDistance;
-
-                if (weAreVeryClose || (weAreWithinSightDistance && LineOfSightToPlayer(player)))
-                {
-                    ret = playerPos;
-                    curSpeed = hiSpeed;
-                }
-
-                else
-                {
-                    ret = Vector2.Lerp(rand, playerPos, playerAffinity);
-                    curSpeed = loSpeed;
-                }
+                ret = playerPos;
+                curSpeed = hiSpeed;
             }
+
             else
             {
-                // player in the light- can't see them at all
-                ret = rand;
+                ret = Vector2.Lerp(rand, playerPos, playerAffinity);
                 curSpeed = loSpeed;
             }
+            
+            
 
             bool wouldStepIntoLight = LightIntensityAtPoint(ret) > intoLight;
             if (wouldStepIntoLight)
