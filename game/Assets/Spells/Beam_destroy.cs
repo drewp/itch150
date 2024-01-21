@@ -8,10 +8,8 @@ public class Beam_destroy : MonoBehaviour
     float Damage;
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
         if (collision.gameObject.tag == "Roamer")
         {
-            Debug.Log("HIT ROAMER");
             collision.gameObject.GetComponent<RoamerManager>().Health -= (int)Damage;
             Destroy(this.gameObject);
         }
