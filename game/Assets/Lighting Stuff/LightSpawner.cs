@@ -27,9 +27,13 @@ public class LightSpawn : MonoBehaviour
     }
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
     {
-        GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
-        Obj.transform.localScale = new Vector3(size, size, 1);
-        Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
-        Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
+        LightMeter L = new LightMeter();
+        if(L.LightIntensityAtPoint(pos) < 0.7f)
+        {
+            GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
+            Obj.transform.localScale = new Vector3(size, size, 1);
+            Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
+            Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
+        }
     }
 }

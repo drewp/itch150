@@ -25,17 +25,21 @@ public class RoamerManager : MonoBehaviour
     }
     void Start()
     {
-       // Hole = Get   
+        
     }
     void Update()
     {
-        if(Health <= 0 && CantDie == false)
+        if (Input.GetKey(KeyCode.K))
+        {
+            Health = 0;
+        }
+        if (Health <= 0 && CantDie == false)
         {
             switch (Type)
             {
                 case 0:
                     RoamerSpawn2.ElapsedMultiplier += 0.03f;
-                    LightSpawn.SpawnLight(3.8f, transform.position, Hole, 0.5f, 3.4f);
+                    LightSpawn.SpawnLight(7f, transform.position, Hole, 0.5f, 3.4f);
                     break;
                 case 1:
                     RoamerSpawn2.ElapsedMultiplier += 0.02f;
