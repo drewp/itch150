@@ -13,6 +13,7 @@ public class RoamerWalk : MonoBehaviour
     public float closeToPlayerThreshold = 2f; // closer than this; just aim for player
     public float maxPlayerSpottingDistance = 10f; // closer than this; aim for player *if you can see them*
     public float maxTimeOnOneGoal = 3f;
+    public float intoLight = .2f; //how willing they are to go into the light
 
     public float loSpeed = 1f;
     public float hiSpeed = 4f;
@@ -93,7 +94,7 @@ public class RoamerWalk : MonoBehaviour
                 curSpeed = loSpeed;
             }
 
-            bool wouldStepIntoLight = LightIntensityAtPoint(ret) > .2f;
+            bool wouldStepIntoLight = LightIntensityAtPoint(ret) > intoLight;
             if (wouldStepIntoLight)
             {
                 continue;
