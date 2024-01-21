@@ -1149,6 +1149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Roamer: {fileID: 3505843964317000304, guid: 23b959d6db5a20b2cb66beb23bc8f2f0, type: 3}
   MaxRoamers: 10
+  LoadTestDemo: 1
 --- !u!114 &1154618144
 MonoBehaviour:
   m_ObjectHideFlags: 0
