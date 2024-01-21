@@ -23,7 +23,7 @@ public class LightSpawn : MonoBehaviour
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
     {
         LightMeter L = new LightMeter();
-        if(L.LightIntensityAtPoint(pos) < 0.7f)
+        if(L.LightIntensityAtPoint(pos) < 0.5f)
         {
             GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
             Obj.transform.localScale = new Vector3(size, size, 1);
