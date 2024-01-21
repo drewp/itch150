@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 973476930}
   m_Layer: 6
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1053,6 +1053,9 @@ MonoBehaviour:
   Flower: 0
   Meat: 0
   Root: 0
+  flowericon: {fileID: 0}
+  rooticon: {fileID: 0}
+  meaticon: {fileID: 0}
 --- !u!58 &973476929
 CircleCollider2D:
   m_ObjectHideFlags: 0
