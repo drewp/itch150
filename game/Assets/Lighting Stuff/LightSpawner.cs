@@ -17,7 +17,7 @@ public class LightSpawn : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = -1;
-            SpawnLight(3.8f, pos, Hole, 0.5f, 3.4f);
+            SpawnLight(7f, pos, Hole, 0.5f, 3.4f);
         }
     }
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)
@@ -25,22 +25,21 @@ public class LightSpawn : MonoBehaviour
         LightMeter L = new LightMeter();
         if(L.LightIntensityAtPoint(pos) < 0.5f)
         {
-            GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
-            Obj.transform.localScale = new Vector3(size, size, 1);
-            Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
-            Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
             GameObject[] Flow = GameObject.FindGameObjectsWithTag("Flower");
-            for (int i = 0; i < Flow.Length;i++)
+            for (int i = 0; i < Flow.Length; i++)
             {
-                if(Vector2.Distance(Flow[i].transform.position, pos) <= 3)
+                if (Vector2.Distance(Flow[i].transform.position, pos) <= 2)
                 {
-                    Destroy(Obj);
-                    Debug.Log("Close");
+                    Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
                     //SpriteRenderer d = Hole.transform.Find("Rendering").GetComponent<SpriteRenderer>();
                     //d.size = new Vector3(0, 0, 0);
                     return;
                 }
             }
+            GameObject Obj = Instantiate(Hole, pos, Quaternion.identity);
+            Obj.transform.localScale = new Vector3(size, size, 1);
+            Obj.GetComponentInChildren<Light2D>().pointLightInnerRadius = InnerRad;
+            Obj.GetComponentInChildren<Light2D>().pointLightOuterRadius = OuterRad;
         }
     }
 }
