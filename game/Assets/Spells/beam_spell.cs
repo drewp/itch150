@@ -19,6 +19,7 @@ public class beam_spell : MonoBehaviour
     private float spell_speed = 60f;
     [SerializeField]
     Material mat;
+    
 
     private int counter = 0;
     void Start()
@@ -49,11 +50,12 @@ public class beam_spell : MonoBehaviour
         Color customColor = new Color(inventory.Root / 2, inventory.Meat / 2, inventory.Flower, 1.0f);
         if (inventory.Meat != 0f)
         {
-            spell_speed = inventory.Flower * 150 / inventory.Meat / 0.8f;
+            spell_speed = inventory.Root * 150 / inventory.Meat / 0.8f;
         }
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = 10f;
+
 
         Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
         mousePos.x = mousePos.x - objectPos.x;
@@ -63,7 +65,6 @@ public class beam_spell : MonoBehaviour
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
 
         float particleStartSize = inventory.Root / 2.2f;
-
         CreateBeamInstance(angle, scl, customColor, particleStartSize);
     }
 

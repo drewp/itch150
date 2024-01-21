@@ -37,12 +37,24 @@ public class inventory : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X)) 
+        if (Input.GetKeyDown(KeyCode.Alpha1)) 
         { 
-            Flower = Root = Meat = 0;
-            flowericon.enabled = rooticon.enabled = meaticon.enabled = false;
+            Flower = 0;
+            flowericon.enabled = false;
 
 
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Meat = 0;
+            meaticon.enabled = false;
+
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Root = 0;
+            rooticon.enabled = false;
         }
     }
 

@@ -41,7 +41,7 @@ public class Sign : MonoBehaviour
             }
 
         }
-        if (distance > 1.0f) 
+        if (distance > 1.0f && distance < 1.2f) 
         {
             text.enabled = false;
             panel.enabled = false;

@@ -15,9 +15,16 @@ public class ingredient : MonoBehaviour
     private Vector3 scaleChange;
     [SerializeField]
     private float scaleamount = 1.0f;
+    SpriteRenderer sr;
+    [SerializeField]
+    bool isStarter = false;
 
     private void Start()
     {
+        if (!isStarter) { value = Random.Range(0f, 2.0f); }
+        
+        sr = this.GetComponent<SpriteRenderer>();
+        sr.color = new Color(0.2f + value/2.5f, 0.2f + value / 2.5f, 0.2f + value / 2.5f, 1.0f);
         playerObj = GameObject.FindGameObjectWithTag("Player");
         player = playerObj.transform;
         inventory = player.GetComponent<inventory>();
