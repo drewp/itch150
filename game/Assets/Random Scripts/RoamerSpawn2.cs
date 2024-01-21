@@ -5,11 +5,6 @@ using UnityEngine;
 public class RoamerSpawn2 : MonoBehaviour
 {
     public GameObject Roamer;
-    public static int RoamerCount = 0;
-    public static float DifficultyMod = 1;
-    public static float Mod = 0;
-    public int MaxRoamers = 10;
-    public static float CurrentDifficulty = 0;
     private int counter = 0;
 
     public GameObject RoamerGroup;
@@ -51,7 +46,26 @@ public class RoamerSpawn2 : MonoBehaviour
         RandomSpawn(transform.position, 30, 5);
         RandomSpawn(transform.position, 30, 5);
         RandomSpawn(transform.position, 30, 5);
-    }
+
+        WaveTimer = 60000;
+        WaverTimerMod = 1000;
+        BaseWaveEnemyAmount = 20;
+        BaseWaveEnemyAmountMod = 10;
+        RandomSpawnTimer = 23000;
+        CurrentRandomSpawnTimer = 0;
+        RandomSpawnTimerMod = 100;
+        EliteEnemyTimer = 300000;
+        EliteEnemyTimerMod = 1000;
+        Enrage = 40;
+        EnrageMod = 1;
+        CurrentWaveTimer = WaveTimer;
+        CurrentRandomSpawnTimer = RandomSpawnTimer;
+        CurrentEliteEnemyTimer = EliteEnemyTimer;
+        EnrageLeft = Enrage;
+        Multiplier = 1;
+        ElapsedMultiplier = 1;
+        LoadTestDemo = false;
+}
 
     void MakeRing(float radius, int count)
     {
