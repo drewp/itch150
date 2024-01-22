@@ -48,7 +48,7 @@ public class PlayManager : MonoBehaviour
         hpbar.fillAmount= health/300f;
         if (Input.GetKey(KeyCode.P))
         {
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("TestWorld");
         }
     }
 
@@ -61,7 +61,7 @@ public class PlayManager : MonoBehaviour
         }
         if(collision.gameObject.tag == "Door" && HasKey == true)
         {
-            SceneManager.LoadScene("TestScene");
+            SceneManager.LoadScene("TestWorld");
         }
         
     }
