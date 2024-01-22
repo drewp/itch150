@@ -23,7 +23,8 @@ public class PlayManager : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
-            Application.Quit();
+            SceneManager.LoadScene("DeathScreen");
+
         }
     }
     public void takeDamage(float dmg)
