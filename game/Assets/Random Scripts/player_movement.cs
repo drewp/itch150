@@ -17,13 +17,14 @@ public class movement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
-        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized* runSpeed;
-        if(rigidBody.velocity.x >= 0.3f || rigidBody.velocity.y >=0.3f)
+    void FixedUpdate()
+    {
+        rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
+        if (rigidBody.velocity.x >= 0.3f || rigidBody.velocity.y >= 0.3f)
         {
-            Debug.Log("yes");
             Sfx.Play();
-        } else
+        }
+        else
         {
             Sfx.Stop();
         }
