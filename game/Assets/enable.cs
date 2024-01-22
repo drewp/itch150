@@ -14,6 +14,7 @@ public class enable : MonoBehaviour
     public void Enable()
     {
         del = true;
+        gameObject.SetActive(true);
     }
     // Update is called once per frame
     void Update()
