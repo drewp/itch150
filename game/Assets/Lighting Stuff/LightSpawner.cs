@@ -14,7 +14,7 @@ public class LightSpawn : MonoBehaviour
         {
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             pos.z = -1;
-            SpawnLight(7f, pos, Hole, 0.5f, 3.4f);
+           // SpawnLight(7f, pos, Hole, 0.5f, 3.4f);
         }
     }
     public static void SpawnLight(float size, Vector3 pos, GameObject Hole, float InnerRad, float OuterRad)

@@ -14,6 +14,7 @@ public class PlayManager : MonoBehaviour
     public GameObject Text;
     [SerializeField]
     Image hpbar;
+    bool first = false;
     void Start()
     {
         if(this.health != 300)
@@ -29,6 +30,11 @@ public class PlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "TestWorld" && first == false)
+        {
+            first = true;
+            transform.position = new Vector3(0, 0, -1);
+        }
         DontDestroyOnLoad(this.gameObject);
         if(health <= 0)
         {

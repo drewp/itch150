@@ -20,13 +20,5 @@ public class movement : MonoBehaviour
     void FixedUpdate()
     {
         rigidBody.velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized * runSpeed;
-        if (rigidBody.velocity.x >= 0.3f || rigidBody.velocity.y >= 0.3f)
-        {
-            Sfx.Play();
-        }
-        else
-        {
-            Sfx.Stop();
-        }
     }
 }
