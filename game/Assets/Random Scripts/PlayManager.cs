@@ -11,6 +11,7 @@ public class PlayManager : MonoBehaviour
     public static bool HasKey;
     public GameObject Key;
     public GameObject Door;
+    public GameObject Text;
     [SerializeField]
     Image hpbar;
     void Start()
@@ -77,6 +78,7 @@ public class PlayManager : MonoBehaviour
             HasKey = true;
             Destroy(collision.gameObject);
             Debug.Log("Ys");
+            Text.GetComponent<enable>().Enable();
         }
         if(collision.gameObject.tag == "Door" && HasKey == true)
         {
