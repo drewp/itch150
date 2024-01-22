@@ -53,6 +53,7 @@ public class PlayManager : MonoBehaviour
         if (collision.gameObject.tag == "Key (For You Ari)")
         {
             HasKey = true;
+            Destroy(collision.gameObject);
         }
         if(collision.gameObject.tag == "Door" && HasKey == true)
         {
