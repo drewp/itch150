@@ -58,12 +58,16 @@ public class PlayManager : MonoBehaviour
         LightMeter meter = FindAnyObjectByType<LightMeter>();
         if(meter.LightIntensityAtPoint(transform.position) >= 0.5f)
         {
-            health += 0.001f;
+            takeDamage(-0.1f);
         }
         hpbar.fillAmount= health/300f;
         if (Input.GetKey(KeyCode.P))
         {
             SceneManager.LoadScene("TestWorld");
+        }
+        if (health > 300)
+        {
+            health = 300;
         }
     }
 
