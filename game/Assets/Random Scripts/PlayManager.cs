@@ -57,7 +57,7 @@ public class PlayManager : MonoBehaviour
         }
         if(collision.gameObject.tag == "Door" && HasKey == true)
         {
-            SceneManager.LoadScene("BossScene");
+            SceneManager.LoadScene("TestScene");
         }
         
     }

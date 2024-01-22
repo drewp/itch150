@@ -61,23 +61,23 @@ public class RoamerManager : MonoBehaviour
             switch (Type)
             {
                 case 0:
-                    RoamerSpawn2.ElapsedMultiplier += 0.03f;
-                    LightSpawn.SpawnLight(7f, transform.position, Hole, 0.5f, 3.4f);
+                    RoamerSpawn2.ElapsedMultiplier += 0.003f;
+                    LightSpawn.SpawnLight(7f*2, transform.position, Hole, 0.5f * 2, 3.4f * 2);
                     MothManager.Count += 1;
                     break;
                 case 1:
-                    RoamerSpawn2.ElapsedMultiplier += 0.02f;
-                    LightSpawn.SpawnLight(6f, transform.position, Hole, 0.3f, 3.5f);
+                    RoamerSpawn2.ElapsedMultiplier += 0.002f;
+                    LightSpawn.SpawnLight(6f * 2, transform.position, Hole, 0.4f * 2, 3.5f * 2);
                     MothManager.Count += 1;
                     break;
                 case 2:
-                    RoamerSpawn2.ElapsedMultiplier += 0.14f;
-                    LightSpawn.SpawnLight(14f, transform.position, Hole, 1.2f, 5.6f);
+                    RoamerSpawn2.ElapsedMultiplier += 0.014f;
+                    LightSpawn.SpawnLight(14f * 2, transform.position, Hole, 1.2f * 2, 5.6f * 2);
                     MothManager.Count += 2;
                     break;
                 case 3:
-                    LightSpawn.SpawnLight(20f, transform.position, Hole, 2.5f, 7.9f);
-                    RoamerSpawn2.ElapsedMultiplier += 0.3f;
+                    LightSpawn.SpawnLight(20f * 2, transform.position, Hole, 2.5f * 2, 7.9f * 2);
+                    RoamerSpawn2.ElapsedMultiplier += 0.03f;
                     MothManager.Count += 2;
                     break;
             }
