@@ -44,7 +44,7 @@ public class PlayManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Our Lord And Saviour Jesus Christ Bless His Holy Name")
+        if (collision.gameObject.tag == "Key (For You Ari)")
         {
             HasKey = true;
         }
