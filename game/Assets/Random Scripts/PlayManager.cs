@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
 {
-    public static float health = 300;
+    public float health = 300;
     public static bool HasKey;
     [SerializeField]
     Image hpbar;
@@ -22,8 +22,15 @@ public class PlayManager : MonoBehaviour
     {
         if(health <= 0)
         {
+            Destroy(gameObject);
             Application.Quit();
         }
+    }
+    public void takeDamage(float dmg)
+    {
+        health -= dmg;
+        hpbar.fillAmount = health / 300f;
+
     }
     private void FixedUpdate()
     {
@@ -32,7 +39,7 @@ public class PlayManager : MonoBehaviour
         {
             health += 0.001f;
         }
-        hpbar.fillAmount= health/3f;
+        hpbar.fillAmount= health/300f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,7 +52,7 @@ public class PlayManager : MonoBehaviour
         {
             //transport to boss scene
         }
-        Destroy(this.gameObject);
+        
     }
 }
 

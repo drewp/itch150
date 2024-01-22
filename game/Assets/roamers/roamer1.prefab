@@ -142,7 +142,7 @@ MonoBehaviour:
   maxTimeOnOneGoal: 3
   intoLight: 0.2
   loSpeed: 1
-  hiSpeed: 4
+  hiSpeed: 2
   Animation: 1
 --- !u!114 &4944400603598204353
 MonoBehaviour:
@@ -238,6 +238,7 @@ MonoBehaviour:
   Type: 0
   BlueMeat: {fileID: 7716879085449849746, guid: 9497c55c8cbd6f4458a8e3045fd65ba9, type: 3}
   Kindle: {fileID: 6310583392590091864, guid: 0e01c5c55ff0a494ea1188de4aa4a72b, type: 3}
+  PlayManager: {fileID: 0}
 --- !u!1 &5788792118865806882
 GameObject:
   m_ObjectHideFlags: 0

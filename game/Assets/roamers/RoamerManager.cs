@@ -12,6 +12,9 @@ public class RoamerManager : MonoBehaviour
 
     public GameObject BlueMeat;
     public GameObject Kindle;
+    [SerializeField]
+    PlayManager PlayManager;
+    
     public void SetStats(int health, int type, float speed, float size, float viewdistance, float lighttolerance, float playerAffinity, float closeThresh, float damage)
     {
         RoamerWalk Ai = gameObject.GetComponent<RoamerWalk>();
@@ -25,6 +28,10 @@ public class RoamerManager : MonoBehaviour
         Ai.maxPlayerSpottingDistance = viewdistance;
         Ai.intoLight = lighttolerance;
         Damage = damage;
+    }
+    private void Start()
+    {
+        PlayManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayManager>();
     }
 
     public void SetStats(int health)
@@ -74,7 +81,7 @@ public class RoamerManager : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            PlayManager.health -= (int)Damage;
+            PlayManager.takeDamage(20f);
             gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 5000);
         }
     }
