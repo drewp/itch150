@@ -841,7 +841,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8258145828123874408, guid: 6085130f34d530d48b86118050a116fb, type: 3}
       propertyPath: msg
-      value: 'If you are running low on kindling, right click ona light flower to
+      value: 'If you are running low on kindling, right click on a light flower to
         burn it (not the spawn flower).the number buttons 1, 2, and 3 can be used
         to burn the respective item in the hot bar slot. Pro tip: each ingredient
         has a different effect on the spell. Experiment!'
