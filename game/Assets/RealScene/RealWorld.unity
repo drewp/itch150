@@ -1581,6 +1581,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 300
+  Key: {fileID: 8314268947568757806, guid: f315cbf019c744d45ab7d243b3f6df9a, type: 3}
+  Door: {fileID: 833039471733304153, guid: 635af624145d2d54088f3022a009c9bf, type: 3}
   hpbar: {fileID: 872682949}
 --- !u!50 &1054474011
 Rigidbody2D:

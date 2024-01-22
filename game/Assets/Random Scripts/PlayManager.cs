@@ -9,6 +9,8 @@ public class PlayManager : MonoBehaviour
 {
     public float health = 300;
     public static bool HasKey;
+    public GameObject Key;
+    public GameObject Door;
     [SerializeField]
     Image hpbar;
     void Start()
@@ -18,7 +20,9 @@ public class PlayManager : MonoBehaviour
             health = 300;
         }
         HasKey = false;
-        health = 300;   
+        health = 300;
+        Key = GameObject.FindWithTag("Key (For You Ari)");
+        Door = GameObject.FindWithTag("Door");
     }
 
     // Update is called once per frame
@@ -40,6 +44,16 @@ public class PlayManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if(Vector2.Distance(Key.transform.position, this.transform.position) <= 3)
+        {
+            HasKey = true;
+            Destroy(Key);
+            Debug.Log("Ys");
+        }
+        if(Vector2.Distance(Door.transform.position, this.transform.position) <= 3)
+        {
+            SceneManager.LoadScene("TestWorld");
+        }
         LightMeter meter = FindAnyObjectByType<LightMeter>();
         if(meter.LightIntensityAtPoint(transform.position) >= 0.5f)
         {
@@ -58,6 +72,7 @@ public class PlayManager : MonoBehaviour
         {
             HasKey = true;
             Destroy(collision.gameObject);
+            Debug.Log("Ys");
         }
         if(collision.gameObject.tag == "Door" && HasKey == true)
         {
