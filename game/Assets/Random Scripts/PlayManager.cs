@@ -46,6 +46,10 @@ public class PlayManager : MonoBehaviour
             health += 0.001f;
         }
         hpbar.fillAmount= health/300f;
+        if (Input.GetKey(KeyCode.P))
+        {
+            SceneManager.LoadScene("TestScene");
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
