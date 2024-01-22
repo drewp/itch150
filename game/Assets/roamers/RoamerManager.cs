@@ -58,25 +58,26 @@ public class RoamerManager : MonoBehaviour
             {
                 Instantiate(BlueMeat, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
             }
+            float mult = 1.5f;
             switch (Type)
             {
                 case 0:
                     RoamerSpawn2.ElapsedMultiplier += 0.003f;
-                    LightSpawn.SpawnLight(7f*2, transform.position, Hole, 0.5f * 2, 3.4f * 2);
+                    LightSpawn.SpawnLight(7f* mult, transform.position, Hole, 0.5f * mult, 3.4f * mult);
                     MothManager.Count += 1;
                     break;
                 case 1:
                     RoamerSpawn2.ElapsedMultiplier += 0.002f;
-                    LightSpawn.SpawnLight(6f * 2, transform.position, Hole, 0.4f * 2, 3.5f * 2);
+                    LightSpawn.SpawnLight(6f * mult, transform.position, Hole, 0.4f * mult, 3.5f * mult);
                     MothManager.Count += 1;
                     break;
                 case 2:
                     RoamerSpawn2.ElapsedMultiplier += 0.014f;
-                    LightSpawn.SpawnLight(14f * 2, transform.position, Hole, 1.2f * 2, 5.6f * 2);
+                    LightSpawn.SpawnLight(14f * mult, transform.position, Hole, 1.2f * mult, 5.6f * mult);
                     MothManager.Count += 2;
                     break;
                 case 3:
-                    LightSpawn.SpawnLight(20f * 2, transform.position, Hole, 2.5f * 2, 7.9f * 2);
+                    LightSpawn.SpawnLight(20f * mult, transform.position, Hole, 2.5f * mult, 7.9f * mult);
                     RoamerSpawn2.ElapsedMultiplier += 0.03f;
                     MothManager.Count += 2;
                     break;
