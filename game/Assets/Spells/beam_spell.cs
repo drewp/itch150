@@ -12,7 +12,7 @@ public class beam_spell : MonoBehaviour
     private float spell_speed = 60f;
     [SerializeField]
     Material mat;
-    
+    AudioSource Sfx;
 
     private int counter = 0;
     void Start()
@@ -39,6 +39,8 @@ public class beam_spell : MonoBehaviour
 
     private void FireBeam()
     {
+        Sfx = GetComponent<AudioSource>();
+        Sfx.Play();
         kindling.burn(0.05f + inventory.Meat / 8);
         Color customColor = new Color(inventory.Root / 2, inventory.Meat / 2, inventory.Flower, 1.0f);
         if (inventory.Meat != 0f)
