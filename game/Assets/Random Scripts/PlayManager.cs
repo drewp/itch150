@@ -45,26 +45,15 @@ public class PlayManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Vector2.Distance(Key.transform.position, this.transform.position) <= 3)
-        {
-            HasKey = true;
-            Destroy(Key);
-            Debug.Log("Ys");
-        }
-        if(Vector2.Distance(Door.transform.position, this.transform.position) <= 3)
-        {
-            SceneManager.LoadScene("TestWorld");
-        }
+        Debug.Log("hi");
+        
         LightMeter meter = FindAnyObjectByType<LightMeter>();
-        if(meter.LightIntensityAtPoint(transform.position) >= 0.5f)
+        if(meter.LightIntensityAtPoint(transform.position) >= 0f)
         {
-            takeDamage(-0.1f);
+            takeDamage(-0.05f);
         }
         hpbar.fillAmount= health/300f;
-        if (Input.GetKey(KeyCode.P))
-        {
-            SceneManager.LoadScene("TestWorld");
-        }
+        
         if (health > 300)
         {
             health = 300;
