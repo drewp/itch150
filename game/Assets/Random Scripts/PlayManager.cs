@@ -35,8 +35,8 @@ public class PlayManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        LightMeter L = new LightMeter();
-        if(L.LightIntensityAtPoint(transform.position) >= 0.5f)
+        LightMeter meter = FindAnyObjectByType<LightMeter>();
+        if(meter.LightIntensityAtPoint(transform.position) >= 0.5f)
         {
             health += 0.001f;
         }
