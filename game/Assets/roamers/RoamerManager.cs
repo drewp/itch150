@@ -35,6 +35,10 @@ public class RoamerManager : MonoBehaviour
     {
         PlayManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayManager>();
         Sfx = GetComponent<AudioSource>();
+        if (TryGetComponent<ParticleSystem>(out var parti))
+        {
+            parti.Stop();
+        }
     }
 
     public void SetStats(int health)
@@ -98,6 +102,9 @@ public class RoamerManager : MonoBehaviour
 
     public void EmitDamage(float healthChange, Vector3 hitVelocity)
     {
-        Debug.Log("EmitDamage");
+        if (TryGetComponent<ParticleSystem>(out var parti))
+        {
+            parti.Play();
+        }
     }
 }
