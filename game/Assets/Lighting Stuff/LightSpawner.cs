@@ -21,7 +21,7 @@ public class LightSpawn : MonoBehaviour
     {
         bool delight = false;
         LightMeter meter = FindAnyObjectByType<LightMeter>();
-        if (meter.LightIntensityAtPoint(pos) >= 5f)
+        if (meter.LightIntensityAtPoint(pos) >= 10f)
         {
             // a light here would have little effect
             return;
@@ -30,7 +30,7 @@ public class LightSpawn : MonoBehaviour
         GameObject[] Flow = GameObject.FindGameObjectsWithTag("Flower");
         for (int i = 0; i < Flow.Length; i++)
         {
-            if (Vector2.Distance(Flow[i].transform.position, pos) <= 0.9f)
+            if (Vector2.Distance(Flow[i].transform.position, pos) <= 1.2f)
             {
                 Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
                 
@@ -45,6 +45,7 @@ public class LightSpawn : MonoBehaviour
         {
             Destroy(Obj.transform.GetChild(1).gameObject);
         }
+
         return;
     }
 }
