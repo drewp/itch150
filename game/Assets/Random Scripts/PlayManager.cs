@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Rendering.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayManager : MonoBehaviour
 {
     public static float health = 300;
     public static bool HasKey;
+    [SerializeField]
+    Image hpbar;
     void Start()
     {
         HasKey = false;
@@ -28,6 +32,7 @@ public class PlayManager : MonoBehaviour
         {
             health += 0.001f;
         }
+        hpbar.fillAmount= health/3f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
