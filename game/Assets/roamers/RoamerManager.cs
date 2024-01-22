@@ -14,7 +14,9 @@ public class RoamerManager : MonoBehaviour
     public GameObject Kindle;
     [SerializeField]
     PlayManager PlayManager;
-    
+
+    AudioSource Sfx;
+
     public void SetStats(int health, int type, float speed, float size, float viewdistance, float lighttolerance, float playerAffinity, float closeThresh, float damage)
     {
         RoamerWalk Ai = gameObject.GetComponent<RoamerWalk>();
@@ -32,6 +34,7 @@ public class RoamerManager : MonoBehaviour
     private void Start()
     {
         PlayManager = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayManager>();
+        Sfx = GetComponent<AudioSource>();
     }
 
     public void SetStats(int health)
@@ -75,6 +78,13 @@ public class RoamerManager : MonoBehaviour
                     break;
             }
             Destroy(this.gameObject);
+        }
+    }
+    private void FixedUpdate()
+    {
+        if(Random.Range(1, 400) == 1)
+        {
+            Sfx.Play();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
