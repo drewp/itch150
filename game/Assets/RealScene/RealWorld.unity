@@ -185,6 +185,79 @@ MonoBehaviour:
   RoamerGroup: {fileID: 4764335858515752818, guid: 11375c2e584cd384b83739ed8403e7a5, type: 3}
   RoamerGroupee: {fileID: 201694265352034230, guid: 5977cbfee7ac09c4a8e19f470be95b66, type: 3}
   LoadTestDemo: 0
+--- !u!1001 &186412785
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 350504108696317908, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bbe332a5061f7b10aa792e72405710d7, type: 2}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 747389147067448584, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4818209539118590134, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: m_Name
+      value: sign (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258145828123874408, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: msg
+      value: In the north east there be treasures, but in the south west is the key
+      objectReference: {fileID: 0}
+    - target: {fileID: 8258145828123874408, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 504252069}
+    - target: {fileID: 8258145828123874408, guid: 6085130f34d530d48b86118050a116fb, type: 3}
+      propertyPath: panel
+      value: 
+      objectReference: {fileID: 2140732949}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6085130f34d530d48b86118050a116fb, type: 3}
 --- !u!1 &203321122
 GameObject:
   m_ObjectHideFlags: 0
@@ -61012,6 +61085,7 @@ SceneRoots:
   - {fileID: 630693116}
   - {fileID: 2097075567}
   - {fileID: 621861036}
+  - {fileID: 186412785}
   - {fileID: 343372239}
   - {fileID: 1702920526}
   - {fileID: 1387292791}
