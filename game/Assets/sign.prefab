@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 350504108696317908}
   - component: {fileID: 5410061525212190108}
   - component: {fileID: 8258145828123874408}
+  - component: {fileID: 6433213869474995790}
   m_Layer: 0
   m_Name: sign
   m_TagString: Untagged
@@ -148,3 +149,15 @@ MonoBehaviour:
     click). Killing an enemy with your spell will spawn more light. DON'T venture
     into the darkness without light!
   panel: {fileID: 0}
+--- !u!114 &6433213869474995790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818209539118590134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff357c477a33d0a9894b441ca92cf54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
