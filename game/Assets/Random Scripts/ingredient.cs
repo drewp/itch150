@@ -43,9 +43,22 @@ public class ingredient : MonoBehaviour
 
             if (Input.GetKeyDown("e"))
             {
-                inventory.add(name, value);
-                Destroy(gameObject);
-                
+                if (name == "flower" && inventory.Flower == 0)
+                {
+                    inventory.add(name, value);
+                    Destroy(gameObject);
+                }
+                if (name == "meat" && inventory.Meat == 0)
+                {
+                    inventory.add(name, value);
+                    Destroy(gameObject);
+                }
+                if (name == "root" && inventory.Root == 0)
+                {
+                    inventory.add(name, value);
+                    Destroy(gameObject);
+                }
+
             }
 
         }
