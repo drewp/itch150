@@ -101,7 +101,6 @@ public class RoamerSpawn2 : MonoBehaviour
         Wait--;
         if (Wait >= 0)
         {
-            Debug.Log("ARI");
             return;
         }
         CurrentWaveTimer -= (int)Difficulty();
