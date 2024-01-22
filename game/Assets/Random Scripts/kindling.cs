@@ -15,6 +15,7 @@ public class kindling : MonoBehaviour
     public void burn(float amount)
     {
         kindle -= amount;
+        if (kindle > 1.0f) { kindle = 1.0f; }
         kindlebar.fillAmount = kindle;
     }
     
