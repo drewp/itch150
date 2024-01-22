@@ -13,6 +13,10 @@ public class PlayManager : MonoBehaviour
     Image hpbar;
     void Start()
     {
+        if(this.health != 300)
+        {
+            health = 300;
+        }
         HasKey = false;
         health = 300;   
     }
@@ -20,6 +24,7 @@ public class PlayManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DontDestroyOnLoad(this.gameObject);
         if(health <= 0)
         {
             Destroy(gameObject);
@@ -51,7 +56,7 @@ public class PlayManager : MonoBehaviour
         }
         if(collision.gameObject.tag == "Door" && HasKey == true)
         {
-            //transport to boss scene
+            SceneManager.LoadScene("BossScene");
         }
         
     }
