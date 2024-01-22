@@ -32,7 +32,7 @@ public class LightSpawn : MonoBehaviour
         {
             if (Vector2.Distance(Flow[i].transform.position, pos) <= 1.2f)
             {
-                Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
+              //  Debug.Log(Vector2.Distance(Flow[i].transform.position, pos));
                 
                 delight = true;
             }
