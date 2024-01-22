@@ -36,6 +36,8 @@ public class RoamerSpawn2 : MonoBehaviour
     public static float ElapsedMultiplier = 1;
     public bool LoadTestDemo = false;
 
+    int Wait = 10000;
+    bool FirstRan = true;
 
     void Start()
     {
@@ -65,7 +67,9 @@ public class RoamerSpawn2 : MonoBehaviour
         Multiplier = 1;
         ElapsedMultiplier = 1;
         LoadTestDemo = false;
-}
+        Wait = 1000;
+        FirstRan = false;
+    }
 
     void MakeRing(float radius, int count)
     {
@@ -83,8 +87,23 @@ public class RoamerSpawn2 : MonoBehaviour
         return m;
 
     }
+    private void Update()
+    {
+        
+    }
     void FixedUpdate()
     {
+        if (FirstRan == true)
+        {
+            Wait = 1000;
+            FirstRan = false;
+        }
+        Wait--;
+        if (Wait >= 0)
+        {
+            Debug.Log("ARI");
+            return;
+        }
         CurrentWaveTimer -= (int)Difficulty();
         CurrentRandomSpawnTimer -= (int)Difficulty();
         CurrentEliteEnemyTimer -= (int)Difficulty();
@@ -102,11 +121,11 @@ public class RoamerSpawn2 : MonoBehaviour
             CurrentRandomSpawnTimer = RandomSpawnTimer;
             RandomSpawn(transform.position, 45, 19);
         }
-        if (GetNearRoamers(new Vector2(50, 50)) <= 3 + (int)Difficulty())
+        if (GetNearRoamers(new Vector2(50, 50)) <= 3 + (int)Difficulty() && Wait <=0)
         {;
             RandomSpawn(transform.position, 45, 20);
         }
-        if (GetNearRoamersOfType(new Vector2(55, 55), 1) <= 5 * Difficulty())
+        if (GetNearRoamersOfType(new Vector2(55, 55), 1) <= 5 * Difficulty() && Wait <= 0)
         {
             CurrentWaveTimer -= (int)Random.Range(1, 3 * Difficulty());
         }

@@ -104,6 +104,12 @@ public class RoamerManager : MonoBehaviour
     {
         if (TryGetComponent<ParticleSystem>(out var parti))
         {
+            var v = hitVelocity.normalized * 5;
+
+            ParticleSystem.VelocityOverLifetimeModule velocityModule = parti.velocityOverLifetime;
+            velocityModule.x = new ParticleSystem.MinMaxCurve(v.x);
+            velocityModule.y = new ParticleSystem.MinMaxCurve(v.y);
+            velocityModule.z = new ParticleSystem.MinMaxCurve(v.z);
             parti.Play();
         }
     }

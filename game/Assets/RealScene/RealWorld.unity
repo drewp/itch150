@@ -215,8 +215,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 2642512101942637322, guid: 392f45f7020515c48af1a942eee2b25d, type: 3}
-  width: 40
-  height: 40
+  width: 200
+  height: 80
   min: 3
   max: 15
 --- !u!4 &203321124
@@ -978,8 +978,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 1719892604395432527, guid: a0d563a6be753cb4a8ffafe1a27563d9, type: 3}
-  width: 40
-  height: 40
+  width: 200
+  height: 80
   min: 3
   max: 15
 --- !u!4 &675270346
@@ -1102,8 +1102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 6070505802252951726, guid: 5083e2f5726146940be0bd124c623850, type: 3}
-  width: 40
-  height: 40
+  width: 200
+  height: 80
   min: 3
   max: 15
 --- !u!4 &846325390
@@ -2292,8 +2292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 7750706512536783176, guid: 83b78d5370edb1246acc78c0ee4fa5f2, type: 3}
-  width: 40
-  height: 40
+  width: 200
+  height: 80
   min: 3
   max: 15
 --- !u!4 &1498558178
@@ -2678,8 +2678,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 1084184912948974054, guid: 417fa4ab015960749a3cf65518fc8617, type: 3}
-  width: 40
-  height: 40
+  width: 200
+  height: 80
   min: 3
   max: 15
 --- !u!4 &1620853141
@@ -2872,8 +2872,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnable: {fileID: 4679523264674968574, guid: c58a3c88c1775ad47b8b7f7019b0feed, type: 3}
-  width: 40
-  height: 40
+  width: 200
+  height: 80
   min: 3
   max: 15
 --- !u!4 &2085498837
