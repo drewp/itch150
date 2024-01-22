@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Deathscreen : MonoBehaviour
+public class Startmenu : MonoBehaviour
 {
-    public void Retry()
+    public void Play()
     {
         SceneManager.LoadScene("RealWorld");
     }
-    public void Menu()
+    public void Quit()
     {
-        SceneManager.LoadScene("Mainmenu");
+        Application.Quit();
     }
 }
