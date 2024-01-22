@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/RealScene/RealWorld.unity
     guid: 2a06bdd4160955e4289302caedb6aa06
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: c9fe10384ad88c54f91f6acda2cc3f4f
+  - enabled: 1
+    path: Assets/Scenes/Mainmenu.unity
+    guid: 85d8da39e7ca8a64e98eef1cc5485583
   m_configObjects: {}
