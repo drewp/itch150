@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4159285971564539460}
   - component: {fileID: 1494182772234442844}
   - component: {fileID: 7478754295957320027}
+  - component: {fileID: 988576114314748265}
   m_Layer: 0
   m_Name: purple_root
   m_TagString: Untagged
@@ -102,6 +103,7 @@ MonoBehaviour:
   value: 0.2
   inventory: {fileID: 0}
   scaleamount: 1
+  isStarter: 0
 --- !u!61 &7478754295957320027
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +149,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &988576114314748265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070505802252951726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ff357c477a33d0a9894b441ca92cf54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
