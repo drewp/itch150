@@ -1115,8 +1115,8 @@ MonoBehaviour:
   spawnable: {fileID: 1719892604395432527, guid: a0d563a6be753cb4a8ffafe1a27563d9, type: 3}
   width: 200
   height: 80
-  min: 3
-  max: 15
+  min: 5
+  max: 25
 --- !u!4 &675270346
 Transform:
   m_ObjectHideFlags: 0

@@ -275,7 +275,7 @@ public class RoamerSpawn2 : MonoBehaviour
         switch (Type)
         {
             case 0:
-                Man.SetStats(100 * (int)dif, Type, 1 + dif, 1, 15 * dif, 4f * dif, /*playerAffinity=*/0.5f, 5f * dif, 13 * dif);
+                Man.SetStats(100 * (int)dif, Type, 3 + dif, 1, 15 * dif, 4f * dif, /*playerAffinity=*/0.5f, 5f * dif, 13 * dif);
                 break;
             case 1:
                 Man.SetStats(90 * (int)dif, Type, 2 + dif, 0.7f, 15 * dif, 4f * dif, /*playerAffinity=*/0.8f, 5f * dif, 8 * dif);
@@ -284,7 +284,7 @@ public class RoamerSpawn2 : MonoBehaviour
                 Man.SetStats(1000 * (int)dif, Type, 3 + dif, 3, 20 * dif, 4f * dif, /*playerAffinity=*/0.7f, 100f * dif, 70 * dif);
                 break;
             case 3:
-                Man.SetStats(1000 * (int)dif, Type, 1 + dif, 3.6f, 100 * dif, 4f * dif, /*playerAffinity=*/0.8f, 50f * dif, 120 * dif);
+                Man.SetStats(1000 * (int)dif, Type, 3 + dif, 3.6f, 100 * dif, 4f * dif, /*playerAffinity=*/0.8f, 50f * dif, 120 * dif);
                 break;
         }
     }

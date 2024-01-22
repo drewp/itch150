@@ -96,7 +96,7 @@ public class RoamerManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayManager.takeDamage(20f);
+            PlayManager.takeDamage(30f);
             gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 5000);
         }
     }
