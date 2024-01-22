@@ -50,7 +50,7 @@ public class RoamerManager : MonoBehaviour
         }
         if (Health <= 0 && !CantDie)
         {
-            if(Random.Range(1, 10) == 1)
+            if (Random.Range(1, 10) == 1)
             {
                 Instantiate(BlueMeat, new Vector3(transform.position.x, transform.position.y, -1), Quaternion.identity);
             }
@@ -82,17 +82,22 @@ public class RoamerManager : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Random.Range(1, 400) == 1)
+        if (Random.Range(1, 400) == 1)
         {
             Sfx.Play();
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             PlayManager.takeDamage(20f);
             gameObject.GetComponent<Rigidbody2D>().AddForce(-transform.right * 5000);
         }
+    }
+
+    public void EmitDamage(float healthChange, Vector3 hitVelocity)
+    {
+        Debug.Log("EmitDamage");
     }
 }
